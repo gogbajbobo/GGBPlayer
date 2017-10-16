@@ -6,13 +6,13 @@
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "GGBAppDelegate.h"
 
-@interface AppDelegate ()
+@interface GGBAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation GGBAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

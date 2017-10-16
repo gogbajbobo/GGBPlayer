@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GGBAlbumArtistsTVC.h
 //  GGBPlayer
 //
 //  Created by Maxim Grigoriev on 16/10/2017.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GGBAlbumArtistsTVC : UITableViewController
 
 @end
-

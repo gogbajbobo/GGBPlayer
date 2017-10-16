@@ -6,17 +6,28 @@
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GGBViewController.h"
 
-@interface ViewController ()
+#import "GGBLibraryController.h"
+
+
+@interface GGBViewController ()
 
 @end
 
-@implementation ViewController
+@implementation GGBViewController
+
+- (void)customInit {
+    
+    [GGBLibraryController start];
+    
+}
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self customInit];
+
 }
 
 

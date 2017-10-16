@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C8C0E431F94D1900007403C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E421F94D1900007403C /* AppDelegate.m */; };
-		2C8C0E461F94D1900007403C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E451F94D1900007403C /* ViewController.m */; };
-		2C8C0E491F94D1900007403C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E471F94D1900007403C /* Main.storyboard */; };
+		2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E421F94D1900007403C /* GGBAppDelegate.m */; };
+		2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E451F94D1900007403C /* GGBViewController.m */; };
 		2C8C0E4B1F94D1900007403C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E4A1F94D1900007403C /* Assets.xcassets */; };
 		2C8C0E4E1F94D1900007403C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E4C1F94D1900007403C /* LaunchScreen.storyboard */; };
 		2C8C0E511F94D1900007403C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E501F94D1900007403C /* main.m */; };
 		2C8C0E5B1F94D1900007403C /* GGBPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E5A1F94D1900007403C /* GGBPlayerTests.m */; };
 		2C8C0E661F94D1900007403C /* GGBPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E651F94D1900007403C /* GGBPlayerUITests.m */; };
+		2C8C0E751F94D2790007403C /* GGBLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E741F94D2790007403C /* GGBLibraryController.m */; };
+		2C8C0E791F94E0D50007403C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E781F94E0D50007403C /* Main.storyboard */; };
+		2C8C0E7F1F94EA5A0007403C /* GGBAlbumArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +38,10 @@
 
 /* Begin PBXFileReference section */
 		2C8C0E3E1F94D1900007403C /* GGBPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C8C0E411F94D1900007403C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2C8C0E421F94D1900007403C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2C8C0E441F94D1900007403C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C8C0E451F94D1900007403C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2C8C0E481F94D1900007403C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C8C0E411F94D1900007403C /* GGBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAppDelegate.h; sourceTree = "<group>"; };
+		2C8C0E421F94D1900007403C /* GGBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAppDelegate.m; sourceTree = "<group>"; };
+		2C8C0E441F94D1900007403C /* GGBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBViewController.h; sourceTree = "<group>"; };
+		2C8C0E451F94D1900007403C /* GGBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBViewController.m; sourceTree = "<group>"; };
 		2C8C0E4A1F94D1900007403C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8C0E4D1F94D1900007403C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C8C0E4F1F94D1900007403C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +52,11 @@
 		2C8C0E611F94D1900007403C /* GGBPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GGBPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C0E651F94D1900007403C /* GGBPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBPlayerUITests.m; sourceTree = "<group>"; };
 		2C8C0E671F94D1900007403C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C8C0E731F94D2790007403C /* GGBLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBLibraryController.h; sourceTree = "<group>"; };
+		2C8C0E741F94D2790007403C /* GGBLibraryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBLibraryController.m; sourceTree = "<group>"; };
+		2C8C0E781F94E0D50007403C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2C8C0E7D1F94EA5A0007403C /* GGBAlbumArtistsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAlbumArtistsTVC.h; sourceTree = "<group>"; };
+		2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAlbumArtistsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +107,19 @@
 		2C8C0E401F94D1900007403C /* GGBPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2C8C0E411F94D1900007403C /* AppDelegate.h */,
-				2C8C0E421F94D1900007403C /* AppDelegate.m */,
-				2C8C0E441F94D1900007403C /* ViewController.h */,
-				2C8C0E451F94D1900007403C /* ViewController.m */,
-				2C8C0E471F94D1900007403C /* Main.storyboard */,
+				2C8C0E411F94D1900007403C /* GGBAppDelegate.h */,
+				2C8C0E421F94D1900007403C /* GGBAppDelegate.m */,
+				2C8C0E441F94D1900007403C /* GGBViewController.h */,
+				2C8C0E451F94D1900007403C /* GGBViewController.m */,
+				2C8C0E781F94E0D50007403C /* Main.storyboard */,
 				2C8C0E4A1F94D1900007403C /* Assets.xcassets */,
 				2C8C0E4C1F94D1900007403C /* LaunchScreen.storyboard */,
 				2C8C0E4F1F94D1900007403C /* Info.plist */,
 				2C8C0E501F94D1900007403C /* main.m */,
+				2C8C0E731F94D2790007403C /* GGBLibraryController.h */,
+				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
+				2C8C0E7D1F94EA5A0007403C /* GGBAlbumArtistsTVC.h */,
+				2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */,
 			);
 			path = GGBPlayer;
 			sourceTree = "<group>";
@@ -194,6 +204,7 @@
 		2C8C0E361F94D1900007403C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GGB;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Maxim Grigoriev";
 				TargetAttributes = {
@@ -238,9 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8C0E791F94E0D50007403C /* Main.storyboard in Resources */,
 				2C8C0E4E1F94D1900007403C /* LaunchScreen.storyboard in Resources */,
 				2C8C0E4B1F94D1900007403C /* Assets.xcassets in Resources */,
-				2C8C0E491F94D1900007403C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8C0E461F94D1900007403C /* ViewController.m in Sources */,
+				2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */,
 				2C8C0E511F94D1900007403C /* main.m in Sources */,
-				2C8C0E431F94D1900007403C /* AppDelegate.m in Sources */,
+				2C8C0E751F94D2790007403C /* GGBLibraryController.m in Sources */,
+				2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */,
+				2C8C0E7F1F94EA5A0007403C /* GGBAlbumArtistsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C8C0E471F94D1900007403C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C8C0E481F94D1900007403C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C8C0E4C1F94D1900007403C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,6 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				INFOPLIST_FILE = GGBPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximgrigoriev.GGBPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				INFOPLIST_FILE = GGBPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximgrigoriev.GGBPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
