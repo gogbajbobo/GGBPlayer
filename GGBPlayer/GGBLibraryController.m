@@ -19,7 +19,7 @@
 
 @implementation GGBLibraryController
 
-+ (instancetype)sharedLibraryController {
++ (GGBLibraryController *)sharedLibraryController {
     
     static dispatch_once_t pred = 0;
     __strong static id _sharedInstance = nil;
@@ -34,14 +34,15 @@
 
 + (void)start {
     
-//    MPMusicPlayerController *pc = [MPMusicPlayerController systemMusicPlayer];
+    GGBLibraryController *lc = [self sharedLibraryController];
+    
     MPMediaQuery *mq = [MPMediaQuery albumsQuery];
     
     NSArray *albumArtists = [mq.collections valueForKeyPath:@"@distinctUnionOfObjects.representativeItem.albumArtist"];
     
     NSLog(@"%@", albumArtists);
-    [GGBLibraryController sharedLibraryController].collections = mq.collections;
-    [GGBLibraryController sharedLibraryController].albumArtists = albumArtists;    
+    lc.collections = mq.collections;
+    lc.albumArtists = albumArtists;
     
     for (MPMediaItemCollection *collection in mq.collections) {
         
@@ -71,14 +72,14 @@
                                                                  ascending:YES
                                                                   selector:@selector(caseInsensitiveCompare:)];
     
-    return [[GGBLibraryController sharedLibraryController].albumArtists sortedArrayUsingDescriptors:@[sortByName]];
+    return [[self sharedLibraryController].albumArtists sortedArrayUsingDescriptors:@[sortByName]];
     
 }
 
 + (NSArray *)collectionsFilteredByAlbumArtist:(NSString *)albumArtist {
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"representativeItem.albumArtist == %@", albumArtist];
-    NSArray *filteredCollections = [[GGBLibraryController sharedLibraryController].collections filteredArrayUsingPredicate:predicate];
+    NSArray *filteredCollections = [[self sharedLibraryController].collections filteredArrayUsingPredicate:predicate];
 
     return filteredCollections;
     
@@ -86,21 +87,21 @@
 
 + (NSNumber *)numberOfAlbumsForAlbumArtist:(NSString *)albumArtist {
     
-    NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
+    NSArray *filteredCollections = [self collectionsFilteredByAlbumArtist:albumArtist];
     return @(filteredCollections.count);
     
 }
 
 + (NSNumber *)numberOfTracksForAlbumArtist:(NSString *)albumArtist {
 
-    NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
+    NSArray *filteredCollections = [self collectionsFilteredByAlbumArtist:albumArtist];
     return [filteredCollections valueForKeyPath:@"@sum.self.count"];
     
 }
 
 + (NSArray *)albumsInfoForAlbumArtist:(NSString *)albumArtist {
     
-    NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
+    NSArray *filteredCollections = [self collectionsFilteredByAlbumArtist:albumArtist];
     return [filteredCollections valueForKeyPath:@"representativeItem"];
     
 }
@@ -116,7 +117,7 @@
 
 + (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist {
 
-    NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
+    NSArray *filteredCollections = [self collectionsFilteredByAlbumArtist:albumArtist];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"representativeItem.albumTitle == %@", albumTitle];
     filteredCollections = [filteredCollections filteredArrayUsingPredicate:predicate];
