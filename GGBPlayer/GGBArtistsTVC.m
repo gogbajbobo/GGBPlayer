@@ -74,6 +74,10 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath {
+    NSLog(@"indexPath %@", indexPath);
+}
+
 
 #pragma mark - Navigation
 
