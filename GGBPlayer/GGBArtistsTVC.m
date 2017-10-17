@@ -60,6 +60,8 @@
     if (numberOfTracks.integerValue) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    cell.imageView.image = [UIImage imageNamed:@"icons8-Music-512.png"];
 
     return cell;
     

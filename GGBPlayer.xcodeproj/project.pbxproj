@@ -19,6 +19,7 @@
 		2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */; };
 		2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */; };
 		2C8C0E871F95EA1C0007403C /* GGBTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */; };
+		2C8C0E8A1F9658E50007403C /* icons8-Music-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E891F9657700007403C /* icons8-Music-512.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBArtistsTVC.m; sourceTree = "<group>"; };
 		2C8C0E851F95EA1C0007403C /* GGBTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBTracksTVC.h; sourceTree = "<group>"; };
 		2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBTracksTVC.m; sourceTree = "<group>"; };
+		2C8C0E891F9657700007403C /* icons8-Music-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Music-512.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		2C8C0E401F94D1900007403C /* GGBPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				2C8C0E881F96574F0007403C /* Resources */,
 				2C8C0E411F94D1900007403C /* GGBAppDelegate.h */,
 				2C8C0E421F94D1900007403C /* GGBAppDelegate.m */,
 				2C8C0E441F94D1900007403C /* GGBViewController.h */,
@@ -150,6 +153,14 @@
 				2C8C0E671F94D1900007403C /* Info.plist */,
 			);
 			path = GGBPlayerUITests;
+			sourceTree = "<group>";
+		};
+		2C8C0E881F96574F0007403C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C8C0E891F9657700007403C /* icons8-Music-512.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8C0E8A1F9658E50007403C /* icons8-Music-512.png in Resources */,
 				2C8C0E791F94E0D50007403C /* Main.storyboard in Resources */,
 				2C8C0E4E1F94D1900007403C /* LaunchScreen.storyboard in Resources */,
 				2C8C0E4B1F94D1900007403C /* Assets.xcassets in Resources */,
