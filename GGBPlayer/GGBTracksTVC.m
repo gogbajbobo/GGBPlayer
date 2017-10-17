@@ -74,6 +74,13 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MPMediaItem *item = self.collection.items[indexPath.row];
+    [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:@[item]]];
+    
+}
+
 /*
 #pragma mark - Navigation
 

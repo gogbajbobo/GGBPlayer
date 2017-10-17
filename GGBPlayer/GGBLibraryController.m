@@ -74,7 +74,9 @@
     MPMusicPlayerController *pc = [self sharedLibraryController].playerController;
     
     [pc setQueueWithItemCollection:collection];
+    [pc setNowPlayingItem:collection.items.firstObject];
     [pc prepareToPlay];
+    [pc play];
     
 }
 
