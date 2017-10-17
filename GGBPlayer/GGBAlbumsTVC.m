@@ -1,31 +1,31 @@
 //
-//  GGBAlbumArtistsTVC.m
+//  GGBAlbumsTVC.m
 //  GGBPlayer
 //
-//  Created by Maxim Grigoriev on 16/10/2017.
+//  Created by Maxim Grigoriev on 17/10/2017.
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "GGBAlbumArtistsTVC.h"
+#import "GGBAlbumsTVC.h"
 #import "GGBLibraryController.h"
 
 
-@interface GGBAlbumArtistsTVC ()
+@interface GGBAlbumsTVC ()
 
 @end
 
 
-@implementation GGBAlbumArtistsTVC
+@implementation GGBAlbumsTVC
 
 - (void)customInit {
-    [GGBLibraryController start];
+    self.title = self.albumArtist;
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     [self customInit];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,21 +40,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [GGBLibraryController albumArtists].count;
+    return [GGBLibraryController numberOfAlbumsForAlbumArtist:self.albumArtist].integerValue;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumArtistCell" forIndexPath:indexPath];
-    cell.textLabel.text = albumArtist;
-    
-    NSNumber *numberOfAlbums = [GGBLibraryController numberOfAlbumsForAlbumArtist:albumArtist];
-    NSNumber *numberOfTracks = [GGBLibraryController numberOfTracksForAlbumArtist:albumArtist];
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"albums: %@, tracks: %@", numberOfAlbums, numberOfTracks];
-
+ 
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell" forIndexPath:indexPath];
     return cell;
     
 }

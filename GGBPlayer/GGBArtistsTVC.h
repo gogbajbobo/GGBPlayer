@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGBAlbumArtistsTVC : UITableViewController
+@interface GGBArtistsTVC : UITableViewController
 
 @end

@@ -16,7 +16,8 @@
 		2C8C0E661F94D1900007403C /* GGBPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E651F94D1900007403C /* GGBPlayerUITests.m */; };
 		2C8C0E751F94D2790007403C /* GGBLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E741F94D2790007403C /* GGBLibraryController.m */; };
 		2C8C0E791F94E0D50007403C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E781F94E0D50007403C /* Main.storyboard */; };
-		2C8C0E7F1F94EA5A0007403C /* GGBAlbumArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */; };
+		2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */; };
+		2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,10 @@
 		2C8C0E731F94D2790007403C /* GGBLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBLibraryController.h; sourceTree = "<group>"; };
 		2C8C0E741F94D2790007403C /* GGBLibraryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBLibraryController.m; sourceTree = "<group>"; };
 		2C8C0E781F94E0D50007403C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		2C8C0E7D1F94EA5A0007403C /* GGBAlbumArtistsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAlbumArtistsTVC.h; sourceTree = "<group>"; };
-		2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAlbumArtistsTVC.m; sourceTree = "<group>"; };
+		2C8C0E7D1F94EA5A0007403C /* GGBArtistsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBArtistsTVC.h; sourceTree = "<group>"; };
+		2C8C0E801F95DF570007403C /* GGBAlbumsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAlbumsTVC.h; sourceTree = "<group>"; };
+		2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAlbumsTVC.m; sourceTree = "<group>"; };
+		2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBArtistsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +121,10 @@
 				2C8C0E501F94D1900007403C /* main.m */,
 				2C8C0E731F94D2790007403C /* GGBLibraryController.h */,
 				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
-				2C8C0E7D1F94EA5A0007403C /* GGBAlbumArtistsTVC.h */,
-				2C8C0E7E1F94EA5A0007403C /* GGBAlbumArtistsTVC.m */,
+				2C8C0E7D1F94EA5A0007403C /* GGBArtistsTVC.h */,
+				2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */,
+				2C8C0E801F95DF570007403C /* GGBAlbumsTVC.h */,
+				2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */,
 			);
 			path = GGBPlayer;
 			sourceTree = "<group>";
@@ -280,7 +285,8 @@
 				2C8C0E511F94D1900007403C /* main.m in Sources */,
 				2C8C0E751F94D2790007403C /* GGBLibraryController.m in Sources */,
 				2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */,
-				2C8C0E7F1F94EA5A0007403C /* GGBAlbumArtistsTVC.m in Sources */,
+				2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */,
+				2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

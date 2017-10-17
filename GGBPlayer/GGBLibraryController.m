@@ -98,5 +98,12 @@
     
 }
 
++ (NSArray *)albumsInfoForAlbumArtist:(NSString *)albumArtist {
+    
+    NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
+    return [filteredCollections valueForKeyPath:@"representativeItem"];
+    
+}
+
 
 @end
