@@ -69,6 +69,15 @@
     
 }
 
++ (void)playCollection:(MPMediaItemCollection *)collection {
+    
+    MPMusicPlayerController *pc = [self sharedLibraryController].playerController;
+    
+    [pc setQueueWithItemCollection:collection];
+    [pc prepareToPlay];
+    
+}
+
 + (NSArray *)albumArtists {
     
     NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"self"
