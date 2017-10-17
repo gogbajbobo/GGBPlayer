@@ -107,14 +107,23 @@
 
 + (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist {
     
+    MPMediaItemCollection *collection = [self collectionForAlbumTitle:albumTitle
+                                                       andAlbumArtist:albumArtist];
+    
+    return @(collection.count);
+    
+}
+
++ (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist {
+
     NSArray *filteredCollections = [GGBLibraryController collectionsFilteredByAlbumArtist:albumArtist];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"representativeItem.albumTitle == %@", albumTitle];
     filteredCollections = [filteredCollections filteredArrayUsingPredicate:predicate];
     
     MPMediaItemCollection *collection = filteredCollections.firstObject;
-    
-    return @(collection.count);
+
+    return collection;
     
 }
 
