@@ -10,6 +10,7 @@
 
 @interface GGBLibraryController()
 
+@property (nonatomic, strong) MPMusicPlayerController *playerController;
 @property (nonatomic, strong) NSArray *collections;
 @property (nonatomic, strong) NSArray *albumArtists;
 
@@ -35,6 +36,8 @@
 + (void)start {
     
     GGBLibraryController *lc = [self sharedLibraryController];
+    
+    lc.playerController = [MPMusicPlayerController systemMusicPlayer];
     
     MPMediaQuery *mq = [MPMediaQuery albumsQuery];
     
