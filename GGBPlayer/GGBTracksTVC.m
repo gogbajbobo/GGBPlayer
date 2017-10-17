@@ -65,7 +65,6 @@
         
     }
     
-    
     cell.textLabel.text = trackTitle;
     cell.detailTextLabel.text = ratingString;
     

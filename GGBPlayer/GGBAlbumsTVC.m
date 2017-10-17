@@ -19,7 +19,15 @@
 @implementation GGBAlbumsTVC
 
 - (void)customInit {
+    
     self.title = self.albumArtist;
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"year"
+                                                                     ascending:YES
+                                                                      selector:@selector(compare:)];
+    
+    self.albumsInfo = [self.albumsInfo sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
 }
 
 - (void)viewDidLoad {
