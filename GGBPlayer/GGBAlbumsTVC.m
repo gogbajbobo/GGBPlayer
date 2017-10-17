@@ -45,7 +45,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell" forIndexPath:indexPath];
+    MPMediaItem *mediaItem = self.albumsInfo[indexPath.row];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell"
+                                                            forIndexPath:indexPath];
+    
+    NSNumber *year = [mediaItem valueForKey:@"year"];
+    NSString *albumTitle = mediaItem.albumTitle;
+    NSNumber *albumTrackCount = [GGBLibraryController numberOfTracksForAlbumTitle:albumTitle
+                                                                   andAlbumArtist:self.albumArtist];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
+    
+    cell.imageView.image = [mediaItem.artwork imageWithSize:cell.imageView.image.size];
+    
     return cell;
     
 }

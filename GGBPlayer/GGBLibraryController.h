@@ -17,5 +17,9 @@
 + (NSNumber *)numberOfAlbumsForAlbumArtist:(NSString *)albumArtist;
 + (NSNumber *)numberOfTracksForAlbumArtist:(NSString *)albumArtist;
 
++ (NSArray *)albumsInfoForAlbumArtist:(NSString *)albumArtist;
+
++ (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
+
 
 @end

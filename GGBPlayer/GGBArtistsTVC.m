@@ -48,7 +48,8 @@
     
     NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumArtistCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumArtistCell"
+                                                            forIndexPath:indexPath];
     cell.textLabel.text = albumArtist;
     
     NSNumber *numberOfAlbums = [GGBLibraryController numberOfAlbumsForAlbumArtist:albumArtist];
@@ -71,6 +72,7 @@
     
 }
 
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -81,7 +83,9 @@
 
     GGBAlbumsTVC *albumTVC = (GGBAlbumsTVC *)segue.destinationViewController;
     NSIndexPath *indexPath = (NSIndexPath *)sender;
-    albumTVC.albumArtist = [GGBLibraryController albumArtists][indexPath.row];
+    NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
+    albumTVC.albumArtist = albumArtist;
+    albumTVC.albumsInfo = [GGBLibraryController albumsInfoForAlbumArtist:albumArtist];
     
 }
 

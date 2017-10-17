@@ -11,6 +11,7 @@
 @interface GGBAlbumsTVC : UITableViewController
 
 @property (nonatomic, strong) NSString *albumArtist;
+@property (nonatomic, strong) NSArray *albumsInfo;
 
 
 @end
