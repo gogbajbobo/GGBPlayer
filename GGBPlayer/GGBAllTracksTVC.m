@@ -21,7 +21,15 @@
 @implementation GGBAllTracksTVC
 
 - (void)customInit {
+    
     self.collections = [GGBLibraryController collectionsFilteredByAlbumArtist:self.albumArtist];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"representativeItem.year"
+                                                                     ascending:YES
+                                                                      selector:@selector(compare:)];
+    
+    self.collections = [self.collections sortedArrayUsingDescriptors:@[sortDescriptor]];
+
 }
 
 - (void)viewDidLoad {
