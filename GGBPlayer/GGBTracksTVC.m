@@ -76,8 +76,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MPMediaItem *item = self.collection.items[indexPath.row];
-    [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:@[item]]];
+    NSRange subarrayRange = NSMakeRange(indexPath.row, self.collection.items.count - indexPath.row);
+    NSArray *items = [self.collection.items subarrayWithRange:subarrayRange];
+    [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:items]];
     
 }
 
