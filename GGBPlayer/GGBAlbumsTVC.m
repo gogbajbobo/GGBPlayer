@@ -28,6 +28,12 @@
     
     self.albumsInfo = [self.albumsInfo sortedArrayUsingDescriptors:@[sortDescriptor]];
     
+    UIBarButtonItem *allTracksButton = [[UIBarButtonItem alloc] initWithTitle:@"All tracks"
+                                                                        style:UIBarButtonItemStyleDone
+                                                                       target:self
+                                                                       action:@selector(showAllTracks)];
+    self.navigationItem.rightBarButtonItem = allTracksButton;
+    
 }
 
 - (void)viewDidLoad {
@@ -40,6 +46,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)showAllTracks {
+    
+    [self performSegueWithIdentifier:@"showAllTracks"
+                              sender:self];
+    
 }
 
 #pragma mark - Table view data source
