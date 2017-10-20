@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */; };
 		2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E421F94D1900007403C /* GGBAppDelegate.m */; };
 		2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E451F94D1900007403C /* GGBViewController.m */; };
 		2C8C0E4B1F94D1900007403C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E4A1F94D1900007403C /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAllTracksTVC.h; sourceTree = "<group>"; };
+		2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAllTracksTVC.m; sourceTree = "<group>"; };
 		2C8C0E3E1F94D1900007403C /* GGBPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C0E411F94D1900007403C /* GGBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAppDelegate.h; sourceTree = "<group>"; };
 		2C8C0E421F94D1900007403C /* GGBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAppDelegate.m; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */,
 				2C8C0E851F95EA1C0007403C /* GGBTracksTVC.h */,
 				2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */,
+				2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */,
+				2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */,
 			);
 			path = GGBPlayer;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			files = (
 				2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */,
 				2C8C0E511F94D1900007403C /* main.m in Sources */,
+				2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */,
 				2C8C0E871F95EA1C0007403C /* GGBTracksTVC.m in Sources */,
 				2C8C0E751F94D2790007403C /* GGBLibraryController.m in Sources */,
 				2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */,

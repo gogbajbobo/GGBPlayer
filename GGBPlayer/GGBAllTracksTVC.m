@@ -1,30 +1,34 @@
 //
-//  GGBTracksTVC.m
+//  GGBAllTracksTVC.m
 //  GGBPlayer
 //
-//  Created by Maxim Grigoriev on 17/10/2017.
+//  Created by Maxim Grigoriev on 20/10/2017.
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "GGBTracksTVC.h"
+#import "GGBAllTracksTVC.h"
+#import "GGBLibraryController.h"
 
-@interface GGBTracksTVC ()
+
+@interface GGBAllTracksTVC ()
+
+@property (nonatomic, strong) NSArray <MPMediaItemCollection *> *collections;
+
 
 @end
 
-@implementation GGBTracksTVC
+
+@implementation GGBAllTracksTVC
 
 - (void)customInit {
-    
-    self.title = [NSString stringWithFormat:@"%@ %@ %@", self.albumInfo.albumArtist, [self.albumInfo valueForKey:@"year"], self.albumInfo.albumTitle];
-    
+    self.collections = [GGBLibraryController collectionsFilteredByAlbumArtist:self.albumArtist];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     [self customInit];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,20 +38,31 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 56.0;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.collections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.collections[section].count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    return [GGBLibraryController numberOfTracksForAlbumTitle:self.albumInfo.albumTitle
-                                              andAlbumArtist:self.albumInfo.albumArtist].integerValue;
+    MPMediaItemCollection *collection = self.collections[section];
+    MPMediaItem *mediaItem = collection.representativeItem;
+    NSNumber *year = [mediaItem valueForKey:@"year"];
+
+    return [NSString stringWithFormat:@"(%@) %@", year, mediaItem.albumTitle];
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MPMediaItem *item = self.collection.items[indexPath.row];
+
+    MPMediaItem *item = self.collections[indexPath.section].items[indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"trackCell"
                                                             forIndexPath:indexPath];
@@ -75,22 +90,5 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSRange subarrayRange = NSMakeRange(indexPath.row, self.collection.items.count - indexPath.row);
-    NSArray *items = [self.collection.items subarrayWithRange:subarrayRange];
-    [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:items]];
-    
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

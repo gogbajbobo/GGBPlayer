@@ -9,6 +9,7 @@
 #import "GGBAlbumsTVC.h"
 #import "GGBLibraryController.h"
 #import "GGBTracksTVC.h"
+#import "GGBAllTracksTVC.h"
 
 
 @interface GGBAlbumsTVC ()
@@ -99,6 +100,28 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showAllTracks"]) {
+        [self prepareForShowAllTracksSegue:segue sender:sender];
+    }
+
+    if ([segue.identifier isEqualToString:@"showTracks"]) {
+        [self prepareForShowTracksSegue:segue sender:sender];
+    }
+    
+}
+
+- (void)prepareForShowAllTracksSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if (![segue.identifier isEqualToString:@"showAllTracks"]) return;
+    if (![segue.destinationViewController isKindOfClass:[GGBAllTracksTVC class]]) return;
+    
+    GGBAllTracksTVC *allTracksTVC = (GGBAllTracksTVC *)segue.destinationViewController;
+    allTracksTVC.albumArtist = self.albumArtist;
+
+}
+
+- (void)prepareForShowTracksSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if (![segue.identifier isEqualToString:@"showTracks"]) return;
     if (![segue.destinationViewController isKindOfClass:[GGBTracksTVC class]]) return;
@@ -110,11 +133,11 @@
     MPMediaItem *mediaItem = self.albumsInfo[indexPath.row];
     NSString *albumTitle = mediaItem.albumTitle;
     NSString *albumArtist = mediaItem.albumArtist;
-
+    
     tracksTVC.albumInfo = mediaItem;
     tracksTVC.collection = [GGBLibraryController collectionForAlbumTitle:albumTitle
                                                           andAlbumArtist:albumArtist];
-    
+
 }
 
 
