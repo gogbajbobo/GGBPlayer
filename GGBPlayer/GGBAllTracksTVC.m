@@ -98,5 +98,20 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MPMediaItemCollection *selectedCollection = self.collections[indexPath.section];
+    
+    NSRange subarrayRange = NSMakeRange(indexPath.row, selectedCollection.count - indexPath.row);
+    NSArray *items = [selectedCollection.items subarrayWithRange:subarrayRange];
+    
+    for (NSInteger i = indexPath.section + 1; i < self.collections.count; i++) {
+        items = [items arrayByAddingObjectsFromArray:self.collections[i].items];
+    }
+    
+    [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:items]];
+    
+}
+
 
 @end
