@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAllTracksTVC.h; sourceTree = "<group>"; };
 		2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAllTracksTVC.m; sourceTree = "<group>"; };
+		2C7956C81F9DE44B00EB3072 /* GGBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBConstants.h; sourceTree = "<group>"; };
 		2C8C0E3E1F94D1900007403C /* GGBPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C0E411F94D1900007403C /* GGBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAppDelegate.h; sourceTree = "<group>"; };
 		2C8C0E421F94D1900007403C /* GGBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 				2C8C0E4C1F94D1900007403C /* LaunchScreen.storyboard */,
 				2C8C0E4F1F94D1900007403C /* Info.plist */,
 				2C8C0E501F94D1900007403C /* main.m */,
+				2C7956C81F9DE44B00EB3072 /* GGBConstants.h */,
 				2C8C0E731F94D2790007403C /* GGBLibraryController.h */,
 				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
 				2C8C0E7D1F94EA5A0007403C /* GGBArtistsTVC.h */,
