@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */; };
+		2C7956CB1F9DE5A900EB3072 /* GGBPlayerNC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */; };
 		2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E421F94D1900007403C /* GGBAppDelegate.m */; };
 		2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E451F94D1900007403C /* GGBViewController.m */; };
 		2C8C0E4B1F94D1900007403C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C0E4A1F94D1900007403C /* Assets.xcassets */; };
@@ -44,6 +45,8 @@
 		2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAllTracksTVC.h; sourceTree = "<group>"; };
 		2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAllTracksTVC.m; sourceTree = "<group>"; };
 		2C7956C81F9DE44B00EB3072 /* GGBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBConstants.h; sourceTree = "<group>"; };
+		2C7956C91F9DE5A900EB3072 /* GGBPlayerNC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBPlayerNC.h; sourceTree = "<group>"; };
+		2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBPlayerNC.m; sourceTree = "<group>"; };
 		2C8C0E3E1F94D1900007403C /* GGBPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C0E411F94D1900007403C /* GGBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAppDelegate.h; sourceTree = "<group>"; };
 		2C8C0E421F94D1900007403C /* GGBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAppDelegate.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				2C7956C81F9DE44B00EB3072 /* GGBConstants.h */,
 				2C8C0E731F94D2790007403C /* GGBLibraryController.h */,
 				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
+				2C7956C91F9DE5A900EB3072 /* GGBPlayerNC.h */,
+				2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */,
 				2C8C0E7D1F94EA5A0007403C /* GGBArtistsTVC.h */,
 				2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */,
 				2C8C0E801F95DF570007403C /* GGBAlbumsTVC.h */,
@@ -305,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7956CB1F9DE5A900EB3072 /* GGBPlayerNC.m in Sources */,
 				2C8C0E461F94D1900007403C /* GGBViewController.m in Sources */,
 				2C8C0E511F94D1900007403C /* main.m in Sources */,
 				2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */,

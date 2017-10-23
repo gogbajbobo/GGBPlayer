@@ -7,6 +7,7 @@
 //
 
 #import "GGBTracksTVC.h"
+#import "GGBConstants.h"
 
 @interface GGBTracksTVC ()
 
@@ -33,6 +34,10 @@
 }
 
 #pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return CELL_HEIGHT;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -67,9 +72,20 @@
     }
     
     cell.textLabel.text = trackTitle;
+    
+    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
+
+    if ([nowPlayingItem.albumArtist isEqualToString:item.albumArtist] &&
+        [nowPlayingItem.albumTitle isEqualToString:item.albumTitle] &&
+        [nowPlayingItem.title isEqualToString:item.title]) {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+    } else {
+        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+    }
+    
     cell.detailTextLabel.text = ratingString;
     
-    cell.imageView.image = [item.artwork imageWithSize:cell.imageView.image.size];
+    cell.imageView.image = [item.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
     
     return cell;
     
