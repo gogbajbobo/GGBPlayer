@@ -85,6 +85,16 @@
                                                                    andAlbumArtist:self.albumArtist];
     
     cell.textLabel.text = [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
+    
+    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
+    
+    if ([nowPlayingItem.albumArtist isEqualToString:mediaItem.albumArtist] &&
+        [nowPlayingItem.albumTitle isEqualToString:mediaItem.albumTitle]) {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+    } else {
+        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+    }
+    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
     cell.imageView.image = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
