@@ -9,6 +9,7 @@
 #import "GGBArtistsTVC.h"
 #import "GGBLibraryController.h"
 #import "GGBAlbumsTVC.h"
+#import "GGBConstants.h"
 
 
 @interface GGBArtistsTVC ()
@@ -19,7 +20,7 @@
 @implementation GGBArtistsTVC
 
 - (void)customInit {
-    [GGBLibraryController start];
+
 }
 
 - (void)viewDidLoad {
@@ -37,7 +38,7 @@
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 56.0;
+    return CELL_HEIGHT;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

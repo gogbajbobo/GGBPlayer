@@ -8,6 +8,7 @@
 
 #import "GGBAllTracksTVC.h"
 #import "GGBLibraryController.h"
+#import "GGBConstants.h"
 
 
 @interface GGBAllTracksTVC ()
@@ -47,7 +48,7 @@
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 56.0;
+    return CELL_HEIGHT;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -92,7 +93,7 @@
     cell.textLabel.text = trackTitle;
     cell.detailTextLabel.text = ratingString;
     
-    cell.imageView.image = [item.artwork imageWithSize:cell.imageView.image.size];
+    cell.imageView.image = [item.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
     
     return cell;
     

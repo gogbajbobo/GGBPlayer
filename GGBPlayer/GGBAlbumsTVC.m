@@ -10,6 +10,7 @@
 #import "GGBLibraryController.h"
 #import "GGBTracksTVC.h"
 #import "GGBAllTracksTVC.h"
+#import "GGBConstants.h"
 
 
 @interface GGBAlbumsTVC ()
@@ -60,7 +61,7 @@
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 56.0;
+    return CELL_HEIGHT;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -86,7 +87,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
-    cell.imageView.image = [mediaItem.artwork imageWithSize:cell.imageView.image.size];
+    cell.imageView.image = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
     
     return cell;
     
