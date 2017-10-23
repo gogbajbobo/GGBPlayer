@@ -91,6 +91,26 @@
     }
     
     cell.textLabel.text = trackTitle;
+    
+    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
+    
+    if ([nowPlayingItem.albumArtist isEqualToString:item.albumArtist] &&
+        [nowPlayingItem.albumTitle isEqualToString:item.albumTitle] &&
+        [nowPlayingItem.title isEqualToString:item.title]) {
+        
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+        
+        UIImageView *iView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icons8-Play-100.png"]];
+        iView.frame = CGRectMake(0, 0, CELL_HEIGHT, CELL_HEIGHT);
+        cell.accessoryView = iView;
+        
+    } else {
+        
+        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+        cell.accessoryView = nil;
+        
+    }
+
     cell.detailTextLabel.text = ratingString;
     
     cell.imageView.image = [item.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
