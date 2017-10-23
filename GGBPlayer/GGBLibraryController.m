@@ -142,5 +142,9 @@
     
 }
 
++ (MPMediaItem *)nowPlayingItem{
+    return [self sharedLibraryController].playerController.nowPlayingItem;
+}
+
 
 @end

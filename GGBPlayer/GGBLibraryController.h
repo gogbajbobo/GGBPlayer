@@ -25,5 +25,7 @@
 + (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
 + (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
 
++ (MPMediaItem *)nowPlayingItem;
+
 
 @end
