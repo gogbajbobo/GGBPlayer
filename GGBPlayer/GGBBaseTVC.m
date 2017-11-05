@@ -50,7 +50,11 @@
     titleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     UIBarButtonItem *titleBtn = [[UIBarButtonItem alloc] initWithCustomView:titleButton];
     
-    UIBarButtonItem *playBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+    MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
+    
+    UIBarButtonSystemItem barButtonSystemItem = (playbackState == MPMusicPlaybackStatePlaying) ? UIBarButtonSystemItemPause : UIBarButtonSystemItemPlay;
+    
+    UIBarButtonItem *playBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:barButtonSystemItem
                                                                              target:nil
                                                                              action:nil];
     
@@ -62,8 +66,39 @@
     
 }
 
-- (void)customInit {
+- (void)playbackStateDidChange {
     [self refreshNowPlayingItem];
+}
+
+- (void)nowPlayingItemDidChange {
+    [self refreshNowPlayingItem];
+}
+
+- (void)subscribeToPlayerNotifications {
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(playbackStateDidChange)
+               name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
+             object:nil];
+
+    [nc addObserver:self
+           selector:@selector(nowPlayingItemDidChange)
+               name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+             object:nil];
+
+}
+
+- (void)unsubscribeFromPlayerNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)customInit {
+    
+    [self refreshNowPlayingItem];
+    [self subscribeToPlayerNotifications];
+    
 }
 
 - (void)viewDidLoad {
