@@ -13,6 +13,9 @@
 
 @interface GGBAlbumsTVC ()
 
+@property (nonatomic, strong) UITableViewCell *selectedCell;
+
+
 @end
 
 
@@ -76,28 +79,38 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell"
                                                             forIndexPath:indexPath];
     
-    NSNumber *year = [mediaItem valueForKey:@"year"];
-    NSString *albumTitle = mediaItem.albumTitle;
-    NSNumber *albumTrackCount = [GGBLibraryController numberOfTracksForAlbumTitle:albumTitle
-                                                                   andAlbumArtist:self.albumArtist];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
+    cell.textLabel.text = [self cellTitleForMediaItem:mediaItem];
     
     MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
     
     if ([nowPlayingItem.albumArtist isEqualToString:mediaItem.albumArtist] &&
         [nowPlayingItem.albumTitle isEqualToString:mediaItem.albumTitle]) {
+        
         cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+        self.selectedCell = cell;
+        
     } else {
         cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
     }
-    
+
+    NSNumber *albumTrackCount = [GGBLibraryController numberOfTracksForAlbumTitle:mediaItem.albumTitle
+                                                                   andAlbumArtist:self.albumArtist];
+
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
     cell.imageView.image = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
     
     return cell;
     
+}
+
+- (NSString *)cellTitleForMediaItem:(MPMediaItem *)mediaItem {
+    
+    NSNumber *year = [mediaItem valueForKey:@"year"];
+    NSString *albumTitle = mediaItem.albumTitle;
+    
+    return [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,6 +159,47 @@
     tracksTVC.collection = [GGBLibraryController collectionForAlbumTitle:albumTitle
                                                           andAlbumArtist:albumArtist];
 
+}
+
+
+#pragma mark - Notifications
+
+- (void)playbackStateDidChange {
+    
+    [super playbackStateDidChange];
+    [self reloadSelectedCell];
+    
+}
+
+- (void)nowPlayingItemDidChange {
+    
+    [super nowPlayingItemDidChange];
+    [self reloadSelectedCell];
+    [self reloadNowPlayingCell];
+    
+}
+
+- (void)reloadSelectedCell {
+    
+    if (!self.selectedCell) return;
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:self.selectedCell];
+    
+    if (!selectedIndexPath) return;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+}
+
+- (void)reloadNowPlayingCell {
+    
+    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
+    NSString *cellTitle = [self cellTitleForMediaItem:nowPlayingItem];
+    
+    NSPredicate *nowPlayingPredicate = [NSPredicate predicateWithFormat:@"textLabel.text == %@", cellTitle];
+    self.selectedCell = [self.tableView.visibleCells filteredArrayUsingPredicate:nowPlayingPredicate].firstObject;
+    [self reloadSelectedCell];
+    
 }
 
 
