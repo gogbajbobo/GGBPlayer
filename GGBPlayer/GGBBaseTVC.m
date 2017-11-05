@@ -15,7 +15,7 @@
 
 @implementation GGBBaseTVC
 
-- (void)showNowPlayingItem {
+- (void)refreshNowPlayingItem {
     
     MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
     
@@ -63,7 +63,7 @@
 }
 
 - (void)customInit {
-    [self showNowPlayingItem];
+    [self refreshNowPlayingItem];
 }
 
 - (void)viewDidLoad {
