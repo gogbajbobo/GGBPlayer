@@ -14,10 +14,12 @@
 
 @interface GGBBaseTVC : UITableViewController
 
+@property (nonatomic, strong) UITableViewCell *selectedCell;
+
+
 - (void)customInit;
 
-- (void)playbackStateDidChange;
-- (void)nowPlayingItemDidChange;
+- (NSPredicate *)nowPlayingPredicate;
 
 
 @end

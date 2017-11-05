@@ -13,9 +13,6 @@
 
 @interface GGBAlbumsTVC ()
 
-@property (nonatomic, strong) UITableViewCell *selectedCell;
-
-
 @end
 
 
@@ -164,43 +161,17 @@
 
 #pragma mark - Notifications
 
-- (void)playbackStateDidChange {
-    
-    [super playbackStateDidChange];
-    [self reloadSelectedCell];
-    
-}
-
-- (void)nowPlayingItemDidChange {
-    
-    [super nowPlayingItemDidChange];
-    [self reloadSelectedCell];
-    [self reloadNowPlayingCell];
-    
-}
-
-- (void)reloadSelectedCell {
-    
-    if (!self.selectedCell) return;
-    
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:self.selectedCell];
-    
-    if (!selectedIndexPath) return;
-    
-    [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
-}
-
-- (void)reloadNowPlayingCell {
+- (NSPredicate *)nowPlayingPredicate {
     
     MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
     NSString *cellTitle = [self cellTitleForMediaItem:nowPlayingItem];
     
     NSPredicate *nowPlayingPredicate = [NSPredicate predicateWithFormat:@"textLabel.text == %@", cellTitle];
-    self.selectedCell = [self.tableView.visibleCells filteredArrayUsingPredicate:nowPlayingPredicate].firstObject;
-    [self reloadSelectedCell];
+
+    return nowPlayingPredicate;
     
 }
+
 
 
 @end

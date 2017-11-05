@@ -76,11 +76,40 @@
 }
 
 - (void)playbackStateDidChange {
+    
     [self refreshNowPlayingItem];
+    [self reloadSelectedCell];
+
 }
 
 - (void)nowPlayingItemDidChange {
+    
     [self refreshNowPlayingItem];
+    [self reloadSelectedCell];
+    [self reloadNowPlayingCell];
+
+}
+
+- (void)reloadSelectedCell {
+    
+    if (!self.selectedCell) return;
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:self.selectedCell];
+    
+    if (!selectedIndexPath) return;
+    [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+}
+
+- (void)reloadNowPlayingCell {
+    
+    NSPredicate *nowPlayingPredicate = [self nowPlayingPredicate];
+    self.selectedCell = nowPlayingPredicate ? [self.tableView.visibleCells filteredArrayUsingPredicate:nowPlayingPredicate].firstObject : self.tableView.visibleCells.firstObject;
+    [self reloadSelectedCell];
+    
+}
+
+- (NSPredicate *)nowPlayingPredicate {
+    return nil;
 }
 
 - (void)subscribeToPlayerNotifications {
