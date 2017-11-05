@@ -12,6 +12,9 @@
 
 @interface GGBArtistsTVC ()
 
+@property (nonatomic, strong) UITableViewCell *selectedCell;
+
+
 @end
 
 
@@ -53,7 +56,10 @@
     cell.textLabel.text = albumArtist;
     
     if ([[GGBLibraryController nowPlayingItem].albumArtist isEqualToString:albumArtist]) {
+        
         cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+        self.selectedCell = cell;
+        
     } else {
         cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
     }
@@ -98,6 +104,46 @@
     NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
     albumTVC.albumArtist = albumArtist;
     albumTVC.albumsInfo = [GGBLibraryController albumsInfoForAlbumArtist:albumArtist];
+    
+}
+
+
+#pragma mark - Notifications
+
+- (void)playbackStateDidChange {
+    
+    [super playbackStateDidChange];
+    [self reloadSelectedCell];
+    
+}
+
+- (void)nowPlayingItemDidChange {
+    
+    [super nowPlayingItemDidChange];
+    [self reloadSelectedCell];
+    [self reloadNowPlayingCell];
+
+}
+
+- (void)reloadSelectedCell {
+    
+    if (!self.selectedCell) return;
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:self.selectedCell];
+    
+    if (!selectedIndexPath) return;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+}
+
+- (void)reloadNowPlayingCell {
+    
+    NSString *nowPlayingArtist = [GGBLibraryController nowPlayingItem].albumArtist;
+    
+    NSPredicate *nowPlayingPredicate = [NSPredicate predicateWithFormat:@"textLabel.text == %@", nowPlayingArtist];
+    self.selectedCell = [self.tableView.visibleCells filteredArrayUsingPredicate:nowPlayingPredicate].firstObject;
+    [self reloadSelectedCell];
     
 }
 
