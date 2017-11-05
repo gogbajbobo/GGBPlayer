@@ -7,7 +7,7 @@
 //
 
 #import "GGBTracksTVC.h"
-#import "GGBConstants.h"
+
 
 @interface GGBTracksTVC ()
 
@@ -17,15 +17,14 @@
 
 - (void)customInit {
     
+    [super customInit];
+    
     self.title = [NSString stringWithFormat:@"%@ %@ %@", self.albumInfo.albumArtist, [self.albumInfo valueForKey:@"year"], self.albumInfo.albumTitle];
     
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    [self customInit];
-    
 }
 
 - (void)didReceiveMemoryWarning {

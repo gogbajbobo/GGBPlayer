@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGBAllTracksTVC : UITableViewController
+#import "GGBBaseTVC.h"
+
+
+@interface GGBAllTracksTVC : GGBBaseTVC
 
 @property (nonatomic, strong) NSString *albumArtist;
 

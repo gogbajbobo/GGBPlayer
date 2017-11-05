@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGBArtistsTVC : UITableViewController
+#import "GGBBaseTVC.h"
+
+@interface GGBArtistsTVC : GGBBaseTVC
 
 @end

@@ -7,10 +7,8 @@
 //
 
 #import "GGBAlbumsTVC.h"
-#import "GGBLibraryController.h"
 #import "GGBTracksTVC.h"
 #import "GGBAllTracksTVC.h"
-#import "GGBConstants.h"
 
 
 @interface GGBAlbumsTVC ()
@@ -21,6 +19,8 @@
 @implementation GGBAlbumsTVC
 
 - (void)customInit {
+    
+    [super customInit];
     
     self.title = self.albumArtist;
     
@@ -39,10 +39,7 @@
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    [self customInit];
-
 }
 
 - (void)didReceiveMemoryWarning {

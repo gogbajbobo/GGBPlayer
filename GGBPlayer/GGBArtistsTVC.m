@@ -7,9 +7,7 @@
 //
 
 #import "GGBArtistsTVC.h"
-#import "GGBLibraryController.h"
 #import "GGBAlbumsTVC.h"
-#import "GGBConstants.h"
 
 
 @interface GGBArtistsTVC ()
@@ -20,57 +18,11 @@
 @implementation GGBArtistsTVC
 
 - (void)customInit {
-    
-    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
-
-    UIImage *buttonImage = [nowPlayingItem.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)];
-    UIButton *artworkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [artworkButton setImage:buttonImage
-                   forState:UIControlStateNormal];
-    artworkButton.frame = CGRectMake(0, 0, CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT);
-    UIBarButtonItem *artworkItem = [[UIBarButtonItem alloc] initWithCustomView:artworkButton];
-    
-    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    titleButton.titleLabel.numberOfLines = 0;
-
-    CGFloat defaultFontSize = titleButton.titleLabel.font.pointSize;
-    CGFloat fontSize = defaultFontSize - 2;
-    
-    NSDictionary *attribute = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:fontSize]};
-    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:[nowPlayingItem.albumArtist stringByAppendingString:@"\n"]
-                                                                       attributes:attribute];
-    attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]};
-    NSAttributedString *itemTitleString = [[NSAttributedString alloc] initWithString:nowPlayingItem.title
-                                                                          attributes:attribute];
-
-    NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:@""];
-    [titleText appendAttributedString:artistString];
-    [titleText appendAttributedString:itemTitleString];
-    [titleButton setAttributedTitle:titleText
-                           forState:UIControlStateNormal];
-    [titleButton setTitleColor:[UIColor blackColor]
-                      forState:UIControlStateNormal];
-    [titleButton sizeToFit];
-    titleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    UIBarButtonItem *titleBtn = [[UIBarButtonItem alloc] initWithCustomView:titleButton];
-    
-    UIBarButtonItem *playBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
-                                                                             target:nil
-                                                                             action:nil];
-
-    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                          target:nil
-                                                                          action:nil];
-    
-    [self setToolbarItems:@[artworkItem, flex, titleBtn, flex, playBtn]];
-    
+    [super customInit];
 }
 
-- (void)viewDidLoad {
-    
+- (void)viewDidLoad {    
     [super viewDidLoad];
-    [self customInit];
-    
 }
 
 - (void)didReceiveMemoryWarning {

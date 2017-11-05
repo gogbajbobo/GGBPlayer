@@ -7,8 +7,6 @@
 //
 
 #import "GGBAllTracksTVC.h"
-#import "GGBLibraryController.h"
-#import "GGBConstants.h"
 
 
 @interface GGBAllTracksTVC ()
@@ -22,6 +20,8 @@
 @implementation GGBAllTracksTVC
 
 - (void)customInit {
+
+    [super customInit];
     
     self.collections = [GGBLibraryController collectionsFilteredByAlbumArtist:self.albumArtist];
     
@@ -34,10 +34,7 @@
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    [self customInit];
-
 }
 
 - (void)didReceiveMemoryWarning {

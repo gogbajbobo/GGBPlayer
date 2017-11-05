@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0B8AF81FAEE443004BD742 /* GGBBaseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B8AF71FAEE443004BD742 /* GGBBaseTVC.m */; };
 		2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */; };
 		2C7956CB1F9DE5A900EB3072 /* GGBPlayerNC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */; };
 		2C7956CE1F9DED1A00EB3072 /* icons8-Pause-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7956CC1F9DED1900EB3072 /* icons8-Pause-100.png */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0B8AF61FAEE443004BD742 /* GGBBaseTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBBaseTVC.h; sourceTree = "<group>"; };
+		2C0B8AF71FAEE443004BD742 /* GGBBaseTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBBaseTVC.m; sourceTree = "<group>"; };
 		2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAllTracksTVC.h; sourceTree = "<group>"; };
 		2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAllTracksTVC.m; sourceTree = "<group>"; };
 		2C7956C81F9DE44B00EB3072 /* GGBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBConstants.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
 				2C7956C91F9DE5A900EB3072 /* GGBPlayerNC.h */,
 				2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */,
+				2C0B8AF61FAEE443004BD742 /* GGBBaseTVC.h */,
+				2C0B8AF71FAEE443004BD742 /* GGBBaseTVC.m */,
 				2C8C0E7D1F94EA5A0007403C /* GGBArtistsTVC.h */,
 				2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */,
 				2C8C0E801F95DF570007403C /* GGBAlbumsTVC.h */,
@@ -327,6 +332,7 @@
 				2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */,
 				2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */,
 				2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */,
+				2C0B8AF81FAEE443004BD742 /* GGBBaseTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

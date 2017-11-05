@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GGBLibraryController.h"
+
+#import "GGBBaseTVC.h"
 
 
-@interface GGBTracksTVC : UITableViewController
+@interface GGBTracksTVC : GGBBaseTVC
 
 @property (nonatomic, strong) MPMediaItem *albumInfo;
 @property (nonatomic, strong) MPMediaItemCollection *collection;
