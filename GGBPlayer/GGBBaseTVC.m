@@ -53,17 +53,26 @@
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
     
     UIBarButtonSystemItem barButtonSystemItem = (playbackState == MPMusicPlaybackStatePlaying) ? UIBarButtonSystemItemPause : UIBarButtonSystemItemPlay;
+    SEL selector = (playbackState == MPMusicPlaybackStatePlaying) ? @selector(pauseNowPlayingItem) : @selector(playNowPlayingItem);
     
     UIBarButtonItem *playBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:barButtonSystemItem
-                                                                             target:nil
-                                                                             action:nil];
+                                                                             target:self
+                                                                             action:selector];
     
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                          target:nil
-                                                                          action:nil];
+                                                                          target:self
+                                                                          action:selector];
     
     [self setToolbarItems:@[artworkItem, flex, titleBtn, flex, playBtn]];
     
+}
+
+- (void)playNowPlayingItem {
+    [GGBLibraryController play];
+}
+
+- (void)pauseNowPlayingItem {
+    [GGBLibraryController pause];
 }
 
 - (void)playbackStateDidChange {

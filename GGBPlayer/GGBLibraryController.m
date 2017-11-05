@@ -80,9 +80,25 @@
     
     [pc setQueueWithItemCollection:collection];
     [pc setNowPlayingItem:collection.items.firstObject];
+
+    [self play];
+    
+}
+
++ (void)play {
+
+    MPMusicPlayerController *pc = [self sharedLibraryController].playerController;
+    
     [pc prepareToPlay];
     [pc play];
-    
+
+}
+
++ (void)pause {
+
+    MPMusicPlayerController *pc = [self sharedLibraryController].playerController;
+    [pc pause];
+
 }
 
 + (NSArray *)albumArtists {

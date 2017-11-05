@@ -16,6 +16,8 @@
 + (void)stop;
 
 + (void)playCollection:(MPMediaItemCollection *)collection;
++ (void)play;
++ (void)pause;
 
 + (NSArray *)albumArtists;
 + (NSNumber *)numberOfAlbumsForAlbumArtist:(NSString *)albumArtist;
