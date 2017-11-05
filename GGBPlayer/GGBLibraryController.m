@@ -43,14 +43,14 @@
     
     NSArray *albumArtists = [mq.collections valueForKeyPath:@"@distinctUnionOfObjects.representativeItem.albumArtist"];
     
-    NSLog(@"%@", albumArtists);
+//    NSLog(@"%@", albumArtists);
     lc.collections = mq.collections;
     lc.albumArtists = albumArtists;
     
     for (MPMediaItemCollection *collection in mq.collections) {
         
-        NSLog(@"%@", collection.representativeItem.albumArtist);
-        NSLog(@"%@", collection.representativeItem.albumTitle);
+//        NSLog(@"%@", collection.representativeItem.albumArtist);
+//        NSLog(@"%@", collection.representativeItem.albumTitle);
         
         NSNumber *yearNumber = [collection.representativeItem valueForProperty:@"year"];
         
@@ -58,7 +58,7 @@
             
             int year = yearNumber.intValue;
             if (year) {
-                NSLog(@"%@", yearNumber);
+//                NSLog(@"%@", yearNumber);
             }
             
         }
