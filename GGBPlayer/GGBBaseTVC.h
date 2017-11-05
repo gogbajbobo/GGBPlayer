@@ -16,5 +16,8 @@
 
 - (void)customInit;
 
+- (void)playbackStateDidChange;
+- (void)nowPlayingItemDidChange;
+
 
 @end
