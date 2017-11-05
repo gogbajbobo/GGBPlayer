@@ -13,6 +13,8 @@
 @interface GGBLibraryController : NSObject
 
 + (void)start;
++ (void)stop;
+
 + (void)playCollection:(MPMediaItemCollection *)collection;
 
 + (NSArray *)albumArtists;
@@ -26,6 +28,7 @@
 + (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
 
 + (MPMediaItem *)nowPlayingItem;
++ (MPMusicPlaybackState)playbackState;
 
 
 @end

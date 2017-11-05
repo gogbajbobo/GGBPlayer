@@ -38,6 +38,7 @@
     GGBLibraryController *lc = [self sharedLibraryController];
     
     lc.playerController = [MPMusicPlayerController systemMusicPlayer];
+    [lc.playerController beginGeneratingPlaybackNotifications];
     
     MPMediaQuery *mq = [MPMediaQuery albumsQuery];
     
@@ -67,6 +68,10 @@
         
     }
     
+}
+
++ (void)stop {
+    [[self sharedLibraryController].playerController endGeneratingPlaybackNotifications];
 }
 
 + (void)playCollection:(MPMediaItemCollection *)collection {
@@ -144,6 +149,10 @@
 
 + (MPMediaItem *)nowPlayingItem{
     return [self sharedLibraryController].playerController.nowPlayingItem;
+}
+
++ (MPMusicPlaybackState)playbackState {
+    return [self sharedLibraryController].playerController.playbackState;
 }
 
 
