@@ -19,6 +19,8 @@
     
     MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
     
+    if (!nowPlayingItem) return;
+    
     UIImage *buttonImage = [nowPlayingItem.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)];
     UIButton *artworkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [artworkButton setImage:buttonImage
