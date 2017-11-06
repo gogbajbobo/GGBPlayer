@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GGBBaseTVC.h"
+#import "GGBBaseTracksTVC.h"
 
 
-@interface GGBTracksTVC : GGBBaseTVC
+@interface GGBTracksTVC : GGBBaseTracksTVC
 
 @property (nonatomic, strong) MPMediaItem *albumInfo;
 @property (nonatomic, strong) MPMediaItemCollection *collection;
