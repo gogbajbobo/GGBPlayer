@@ -173,4 +173,20 @@
 
 }
 
+- (void)selectCell:(UITableViewCell *)cell {
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+    cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+    self.selectedCell = cell;
+
+}
+
+- (void)unselectCell:(UITableViewCell *)cell {
+
+    cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+    cell.backgroundColor = [UIColor whiteColor];
+
+}
+
+
 @end

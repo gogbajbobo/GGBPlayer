@@ -22,6 +22,8 @@
 - (NSPredicate *)nowPlayingPredicate;
 
 - (void)setImage:(UIImage *)cellImage forCell:(UITableViewCell *)cell;
+- (void)selectCell:(UITableViewCell *)cell;
+- (void)unselectCell:(UITableViewCell *)cell;
 
 
 @end

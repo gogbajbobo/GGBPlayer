@@ -53,12 +53,9 @@
     cell.textLabel.text = albumArtist;
     
     if ([[GGBLibraryController nowPlayingItem].albumArtist isEqualToString:albumArtist]) {
-        
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
-        self.selectedCell = cell;
-        
+        [super selectCell:cell];
     } else {
-        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+        [super unselectCell:cell];
     }
     
     NSNumber *numberOfAlbums = [GGBLibraryController numberOfAlbumsForAlbumArtist:albumArtist];

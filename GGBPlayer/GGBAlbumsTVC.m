@@ -82,12 +82,9 @@
     
     if ([nowPlayingItem.albumArtist isEqualToString:mediaItem.albumArtist] &&
         [nowPlayingItem.albumTitle isEqualToString:mediaItem.albumTitle]) {
-        
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
-        self.selectedCell = cell;
-        
+        [super selectCell:cell];
     } else {
-        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+        [super unselectCell:cell];
     }
 
     NSNumber *albumTrackCount = [GGBLibraryController numberOfTracksForAlbumTitle:mediaItem.albumTitle

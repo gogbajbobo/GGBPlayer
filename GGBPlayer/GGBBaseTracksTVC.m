@@ -55,12 +55,9 @@
     if ([nowPlayingItem.albumArtist isEqualToString:item.albumArtist] &&
         [nowPlayingItem.albumTitle isEqualToString:item.albumTitle] &&
         [nowPlayingItem.title isEqualToString:item.title]) {
-        
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
-        self.selectedCell = cell;
-        
+        [super selectCell:cell];
     } else {
-        cell.textLabel.font = [UIFont systemFontOfSize:cell.textLabel.font.pointSize];
+        [super unselectCell:cell];
     }
     
     cell.detailTextLabel.text = ratingString;
