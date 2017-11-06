@@ -9,7 +9,7 @@
 #ifndef GGBConstants_h
 #define GGBConstants_h
 
-#define CELL_HEIGHT 56.0
+#define CELL_HEIGHT 44.0
 #define CELL_IMAGE_HEIGHT 44.0
 
 

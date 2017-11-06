@@ -70,8 +70,9 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.imageView.image = [UIImage imageNamed:@"icons8-Music-512.png"];
-
+    [super setImage:[UIImage imageNamed:@"icons8-Music-512.png"]
+            forCell:cell];
+    
     return cell;
     
 }

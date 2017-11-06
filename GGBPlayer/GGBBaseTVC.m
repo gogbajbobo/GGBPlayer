@@ -162,5 +162,15 @@
     return 0;
 }
 
+- (void)setImage:(UIImage *)cellImage forCell:(UITableViewCell *)cell {
+    
+    cell.imageView.image = cellImage;
+    
+    CGFloat widthScale = CELL_IMAGE_HEIGHT / cellImage.size.width;
+    CGFloat heightScale = CELL_IMAGE_HEIGHT / cellImage.size.height;
+    
+    cell.imageView.transform = CGAffineTransformMakeScale(widthScale, heightScale);
+
+}
 
 @end

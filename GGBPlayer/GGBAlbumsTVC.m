@@ -95,7 +95,9 @@
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
-    cell.imageView.image = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
+    UIImage *cellImage = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)];
+    [super setImage:cellImage
+            forCell:cell];
     
     return cell;
     

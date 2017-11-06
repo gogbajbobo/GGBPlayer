@@ -21,5 +21,7 @@
 
 - (NSPredicate *)nowPlayingPredicate;
 
+- (void)setImage:(UIImage *)cellImage forCell:(UITableViewCell *)cell;
+
 
 @end

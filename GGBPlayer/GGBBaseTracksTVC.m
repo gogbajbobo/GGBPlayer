@@ -64,8 +64,10 @@
     }
     
     cell.detailTextLabel.text = ratingString;
-    cell.imageView.image = [item.artwork imageWithSize:CGSizeMake(CELL_HEIGHT, CELL_HEIGHT)];
     cell.tag = item.albumTrackNumber;
+    
+    [super setImage:[item.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)]
+            forCell:cell];
     
     return cell;
     
