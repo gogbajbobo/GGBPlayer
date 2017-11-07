@@ -28,30 +28,6 @@
     artworkButton.frame = CGRectMake(0, 0, CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT);
     UIBarButtonItem *artworkItem = [[UIBarButtonItem alloc] initWithCustomView:artworkButton];
     
-    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    titleButton.titleLabel.numberOfLines = 0;
-    
-    CGFloat defaultFontSize = titleButton.titleLabel.font.pointSize;
-    CGFloat fontSize = defaultFontSize - 2;
-    
-    NSDictionary *attribute = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:fontSize]};
-    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:[nowPlayingItem.albumArtist stringByAppendingString:@"\n"]
-                                                                       attributes:attribute];
-    attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]};
-    NSAttributedString *itemTitleString = [[NSAttributedString alloc] initWithString:nowPlayingItem.title
-                                                                          attributes:attribute];
-    
-    NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:@""];
-    [titleText appendAttributedString:artistString];
-    [titleText appendAttributedString:itemTitleString];
-    [titleButton setAttributedTitle:titleText
-                           forState:UIControlStateNormal];
-    [titleButton setTitleColor:[UIColor blackColor]
-                      forState:UIControlStateNormal];
-    [titleButton sizeToFit];
-    titleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    UIBarButtonItem *titleBtn = [[UIBarButtonItem alloc] initWithCustomView:titleButton];
-    
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
     
     UIBarButtonSystemItem barButtonSystemItem = (playbackState == MPMusicPlaybackStatePlaying) ? UIBarButtonSystemItemPause : UIBarButtonSystemItemPlay;
@@ -65,7 +41,76 @@
                                                                           target:self
                                                                           action:selector];
     
+    UIBarButtonItem *titleBtn = [self titleBtnForNowPlayingItem:nowPlayingItem];
+    
     [self setToolbarItems:@[artworkItem, flex, titleBtn, flex, playBtn]];
+    
+}
+
+- (UIBarButtonItem *)titleBtnForNowPlayingItem:(MPMediaItem *)nowPlayingItem {
+    
+    CGFloat toolbarWidth = self.navigationController.toolbar.frame.size.width;
+    CGFloat barButtonSystemItemWidth = 44.0;
+    CGFloat padding = 22.0;
+    CGFloat occupiedWidth = CELL_IMAGE_HEIGHT + barButtonSystemItemWidth + padding * 2;
+    CGFloat availableWidth = toolbarWidth - occupiedWidth;
+
+    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    titleButton.titleLabel.numberOfLines = 2;
+    titleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+
+    CGFloat defaultFontSize = titleButton.titleLabel.font.pointSize;
+    CGFloat fontSize = defaultFontSize - 2;
+    
+    NSMutableString *albumArtist = nowPlayingItem.albumArtist.mutableCopy;
+    
+    UIFont *font = [UIFont boldSystemFontOfSize:fontSize];
+
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+
+    NSRange range = {albumArtist.length-1, 1};
+
+    while ([albumArtist boundingRectWithSize:CGSizeMake(FLT_MAX, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil].size.width > availableWidth) {
+
+        [albumArtist deleteCharactersInRange:range];
+        range.location--;
+        [albumArtist replaceCharactersInRange:range withString:@"…"];
+
+    }
+
+    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:[albumArtist stringByAppendingString:@"\n"]
+                                                                       attributes:attributes];
+    
+    font = [UIFont systemFontOfSize:fontSize];
+
+    NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
+    paragrahStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+
+    attributes = @{NSFontAttributeName           : font,
+                   NSParagraphStyleAttributeName : paragrahStyle};
+    
+    NSAttributedString *itemTitleString = [[NSAttributedString alloc] initWithString:nowPlayingItem.title
+                                                                          attributes:attributes];
+    
+    NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:@""];
+    [titleText appendAttributedString:artistString];
+    [titleText appendAttributedString:itemTitleString];
+    [titleButton setAttributedTitle:titleText
+                           forState:UIControlStateNormal];
+    [titleButton setTitleColor:[UIColor blackColor]
+                      forState:UIControlStateNormal];
+    
+    [titleButton sizeToFit];
+    
+    CGFloat titleButtonWidth = titleButton.frame.size.width;
+
+    if (titleButtonWidth > availableWidth) {
+        titleButton.frame = CGRectMake(titleButton.frame.origin.x, titleButton.frame.origin.y, toolbarWidth - occupiedWidth, titleButton.frame.size.height);
+    }
+
+    UIBarButtonItem *titleBtn = [[UIBarButtonItem alloc] initWithCustomView:titleButton];
+    
+    return titleBtn;
     
 }
 
