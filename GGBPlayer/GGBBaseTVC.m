@@ -179,10 +179,28 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)scrollToSelectedCell {
+    
+    // do not work if cell is not visible
+    // TODO: have to fix it
+    
+    if (!self.selectedCell) return;
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.selectedCell];
+    
+    if (!indexPath) return;
+    
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionMiddle
+                                  animated:NO];
+
+}
+
 - (void)customInit {
     
     [self refreshNowPlayingItem];
     [self subscribeToPlayerNotifications];
+    [self scrollToSelectedCell];
     
 }
 
@@ -225,7 +243,7 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
     cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     self.selectedCell = cell;
-
+    
 }
 
 - (void)unselectCell:(UITableViewCell *)cell {
