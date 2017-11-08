@@ -7,10 +7,16 @@
 //
 
 #import "GGBTrackInfoVC.h"
+#import "GGBLibraryController.h"
+
 
 @interface GGBTrackInfoVC ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *trackImageView;
+
+
 @end
+
 
 @implementation GGBTrackInfoVC
 
@@ -22,16 +28,33 @@
     
 }
 
-
-#pragma mark - view lifecycle
-
-- (void)customInit {
+- (void)addSwipeGesture {
     
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(dismissSelf)];
     swipe.direction = UISwipeGestureRecognizerDirectionDown;
     
     [self.view addGestureRecognizer:swipe];
+
+}
+
+- (void)fillTrackInfo {
+    
+    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+    
+    UIImage *trackImage = [currentItem.artwork imageWithSize:self.trackImageView.frame.size];
+    
+    self.trackImageView.image = trackImage;
+    
+}
+
+
+#pragma mark - view lifecycle
+
+- (void)customInit {
+
+    [self addSwipeGesture];
+    [self fillTrackInfo];
     
 }
 

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +21,29 @@
                     <view key="view" contentMode="scaleToFill" id="22A-gj-J1t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-34-AO8">
+                                <rect key="frame" x="40" y="37" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EP7-34-AO8" secondAttribute="height" multiplier="1:1" id="cxV-KX-Q8C"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EP7-34-AO8" firstAttribute="top" secondItem="2mQ-Kp-Xvr" secondAttribute="bottom" constant="17" id="HHo-1F-rgJ"/>
+                            <constraint firstItem="EP7-34-AO8" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="Hu3-Ge-s7P"/>
+                            <constraint firstAttribute="trailing" secondItem="EP7-34-AO8" secondAttribute="trailing" constant="40" id="LN0-qG-Yhy"/>
+                            <constraint firstItem="EP7-34-AO8" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="Q4j-vh-OF2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="trackImageView" destination="EP7-34-AO8" id="6T8-lU-pl4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-696"/>
+            <point key="canvasLocation" x="210" y="-696.12676056338034"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kJP-Bf-PWA">
