@@ -99,9 +99,11 @@
                            forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor blackColor]
                       forState:UIControlStateNormal];
-    
+    [titleButton addTarget:self
+                    action:@selector(showTrackInfo)
+          forControlEvents:UIControlEventTouchUpInside];
     [titleButton sizeToFit];
-    
+
     CGFloat titleButtonWidth = titleButton.frame.size.width;
 
     if (titleButtonWidth > availableWidth) {
@@ -195,6 +197,12 @@
                                   animated:NO];
 
 }
+
+- (void)showTrackInfo {
+    [self.navigationController performSegueWithIdentifier:@"showTrackInfo" sender:self];
+}
+
+#pragma mark - view lifecycle
 
 - (void)customInit {
     
