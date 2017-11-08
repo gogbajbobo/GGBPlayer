@@ -39,16 +39,38 @@
     
     lc.playerController = [MPMusicPlayerController systemMusicPlayer];
     [lc.playerController beginGeneratingPlaybackNotifications];
+
+    [self refreshCollections];
     
-    MPMediaQuery *mq = [MPMediaQuery albumsQuery];
-    NSArray *albumArtists = [mq.collections valueForKeyPath:@"@distinctUnionOfObjects.representativeItem.albumArtist"];
-    lc.collections = mq.collections;
-    lc.albumArtists = albumArtists;
-        
 }
 
 + (void)stop {
     [[self sharedLibraryController].playerController endGeneratingPlaybackNotifications];
+}
+
++ (void)refreshCollections {
+
+    GGBLibraryController *lc = [self sharedLibraryController];
+    
+    MPMediaQuery *mq = [MPMediaQuery albumsQuery];
+    
+    NSMutableArray *filteredCollections = @[].mutableCopy;
+    
+    for (MPMediaItemCollection *collection in mq.collections) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assetURL != nil"];
+        NSArray *filteredItems = [collection.items filteredArrayUsingPredicate:predicate];
+        
+        if (!filteredItems.count) continue;
+        
+        [filteredCollections addObject:[MPMediaItemCollection collectionWithItems:filteredItems]];
+
+    }
+    
+    NSArray *albumArtists = [filteredCollections valueForKeyPath:@"@distinctUnionOfObjects.representativeItem.albumArtist"];
+    lc.collections = filteredCollections;
+    lc.albumArtists = albumArtists;
+
 }
 
 + (void)playCollection:(MPMediaItemCollection *)collection {
