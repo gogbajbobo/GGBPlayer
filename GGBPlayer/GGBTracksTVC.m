@@ -19,7 +19,7 @@
     
     [super customInit];
     
-    self.title = [NSString stringWithFormat:@"%@ %@ %@", self.albumInfo.albumArtist, [self.albumInfo valueForKey:@"year"], self.albumInfo.albumTitle];
+    self.title = [NSString stringWithFormat:@"%@ %@ %@", self.albumInfo.albumArtist, [self.albumInfo valueForProperty:@"year"], self.albumInfo.albumTitle];
     
 }
 

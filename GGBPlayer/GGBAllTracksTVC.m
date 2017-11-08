@@ -57,7 +57,7 @@
     
     MPMediaItemCollection *collection = self.collections[section];
     MPMediaItem *mediaItem = collection.representativeItem;
-    NSNumber *year = [mediaItem valueForKey:@"year"];
+    NSNumber *year = [mediaItem valueForProperty:@"year"];
 
     return [NSString stringWithFormat:@"(%@) %@", year, mediaItem.albumTitle];
     

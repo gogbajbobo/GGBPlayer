@@ -102,7 +102,7 @@
 
 - (NSString *)cellTitleForMediaItem:(MPMediaItem *)mediaItem {
     
-    NSNumber *year = [mediaItem valueForKey:@"year"];
+    NSNumber *year = [mediaItem valueForProperty:@"year"];
     NSString *albumTitle = mediaItem.albumTitle;
     
     return [NSString stringWithFormat:@"(%@) %@", year, albumTitle];
