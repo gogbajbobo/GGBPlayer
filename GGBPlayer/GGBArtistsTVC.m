@@ -67,9 +67,6 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-//    [super setImage:[UIImage imageNamed:@"icons8-Music-512.png"]
-//            forCell:cell];
-    
     return cell;
     
 }
