@@ -237,6 +237,10 @@
 
 - (void)setImage:(UIImage *)cellImage forCell:(UITableViewCell *)cell {
     
+    if (!cellImage) {
+        cellImage = [UIImage imageNamed:@"cd.png"];
+    }
+    
     cell.imageView.image = cellImage;
     
     CGFloat widthScale = CELL_IMAGE_HEIGHT / cellImage.size.width;

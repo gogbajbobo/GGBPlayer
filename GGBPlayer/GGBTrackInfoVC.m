@@ -44,6 +44,10 @@
     
     UIImage *trackImage = [currentItem.artwork imageWithSize:self.trackImageView.frame.size];
     
+    if (!trackImage) {
+        trackImage = [UIImage imageNamed:@"cd.png"];
+    }
+
     self.trackImageView.image = trackImage;
     
 }
