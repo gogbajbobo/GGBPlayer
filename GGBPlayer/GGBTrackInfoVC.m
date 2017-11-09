@@ -8,11 +8,14 @@
 
 #import "GGBTrackInfoVC.h"
 #import "GGBLibraryController.h"
+#import "GGBAutoScrollLabel.h"
 
 
 @interface GGBTrackInfoVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *trackImageView;
+@property (weak, nonatomic) IBOutlet GGBAutoScrollLabel *artistLabel;
+@property (weak, nonatomic) IBOutlet GGBAutoScrollLabel *trackTitleLabel;
 
 
 @end
@@ -49,6 +52,10 @@
     }
 
     self.trackImageView.image = trackImage;
+    
+    self.artistLabel.labelText = currentItem.artist;
+    self.artistLabel.labelFont = [UIFont boldSystemFontOfSize:self.artistLabel.labelFont.pointSize];
+    self.trackTitleLabel.labelText = currentItem.title;
     
 }
 

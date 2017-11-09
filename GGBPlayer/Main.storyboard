@@ -28,17 +28,39 @@
                                     <constraint firstAttribute="width" secondItem="EP7-34-AO8" secondAttribute="height" multiplier="1:1" id="cxV-KX-Q8C"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ear-oW-GdN" customClass="GGBAutoScrollLabel">
+                                <rect key="frame" x="40" y="298" width="240" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Qw2-FB-OWT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxz-BB-b6c" customClass="GGBAutoScrollLabel">
+                                <rect key="frame" x="40" y="350" width="240" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="g5b-0r-yrJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Vxz-BB-b6c" firstAttribute="top" secondItem="ear-oW-GdN" secondAttribute="bottom" constant="8" id="CFQ-nW-u3U"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="top" secondItem="2mQ-Kp-Xvr" secondAttribute="bottom" constant="17" id="HHo-1F-rgJ"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="Hu3-Ge-s7P"/>
                             <constraint firstAttribute="trailing" secondItem="EP7-34-AO8" secondAttribute="trailing" constant="40" id="LN0-qG-Yhy"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="Q4j-vh-OF2"/>
+                            <constraint firstItem="ear-oW-GdN" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="Z1o-Fx-9vS"/>
+                            <constraint firstItem="Vxz-BB-b6c" firstAttribute="width" secondItem="ear-oW-GdN" secondAttribute="width" id="kfH-4X-pZr"/>
+                            <constraint firstItem="ear-oW-GdN" firstAttribute="top" secondItem="EP7-34-AO8" secondAttribute="bottom" constant="21" id="lDD-4M-GAd"/>
+                            <constraint firstItem="Vxz-BB-b6c" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="n0D-SN-r9X"/>
+                            <constraint firstItem="ear-oW-GdN" firstAttribute="width" secondItem="EP7-34-AO8" secondAttribute="width" id="uy7-sB-At6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artistLabel" destination="ear-oW-GdN" id="u4g-xQ-Uet"/>
                         <outlet property="trackImageView" destination="EP7-34-AO8" id="6T8-lU-pl4"/>
+                        <outlet property="trackTitleLabel" destination="Vxz-BB-b6c" id="7Jk-5L-DN1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
