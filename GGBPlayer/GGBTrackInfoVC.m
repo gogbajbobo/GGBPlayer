@@ -13,6 +13,9 @@
 @interface GGBTrackInfoVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *trackImageView;
+@property (weak, nonatomic) IBOutlet UILabel *artistName;
+@property (weak, nonatomic) IBOutlet UILabel *albumTitle;
+@property (weak, nonatomic) IBOutlet UILabel *trackTitle;
 
 
 @end
@@ -50,6 +53,10 @@
 
     self.trackImageView.image = trackImage;
     
+    self.artistName.text = currentItem.artist;
+    self.albumTitle.text = [NSString stringWithFormat:@"(%@) %@", [currentItem valueForProperty:@"year"], currentItem.albumTitle];
+    self.trackTitle.text = currentItem.title;
+        
 }
 
 

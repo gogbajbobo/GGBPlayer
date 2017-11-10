@@ -28,17 +28,50 @@
                                     <constraint firstAttribute="width" secondItem="EP7-34-AO8" secondAttribute="height" multiplier="1:1" id="cxV-KX-Q8C"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xlv-vD-4vx">
+                                <rect key="frame" x="40" y="285" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="sjU-2E-Kik">
+                                <rect key="frame" x="40" y="314" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BVs-wO-BsY">
+                                <rect key="frame" x="40" y="343" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BVs-wO-BsY" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="2CC-NO-WKO"/>
+                            <constraint firstItem="BVs-wO-BsY" firstAttribute="top" secondItem="sjU-2E-Kik" secondAttribute="bottom" constant="8" id="4n1-33-ePV"/>
+                            <constraint firstItem="sjU-2E-Kik" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="GRW-VE-ceT"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="top" secondItem="2mQ-Kp-Xvr" secondAttribute="bottom" constant="17" id="HHo-1F-rgJ"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="Hu3-Ge-s7P"/>
                             <constraint firstAttribute="trailing" secondItem="EP7-34-AO8" secondAttribute="trailing" constant="40" id="LN0-qG-Yhy"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="Q4j-vh-OF2"/>
+                            <constraint firstAttribute="trailing" secondItem="BVs-wO-BsY" secondAttribute="trailing" constant="40" id="SyW-sZ-0TF"/>
+                            <constraint firstItem="sjU-2E-Kik" firstAttribute="top" secondItem="Xlv-vD-4vx" secondAttribute="bottom" constant="8" id="Uih-uT-RJz"/>
+                            <constraint firstAttribute="trailing" secondItem="sjU-2E-Kik" secondAttribute="trailing" constant="40" id="bVb-p4-dTl"/>
+                            <constraint firstItem="sjU-2E-Kik" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="bwJ-49-hQL"/>
+                            <constraint firstItem="Xlv-vD-4vx" firstAttribute="top" secondItem="EP7-34-AO8" secondAttribute="bottom" constant="8" id="chZ-rZ-dxR"/>
+                            <constraint firstAttribute="trailing" secondItem="Xlv-vD-4vx" secondAttribute="trailing" constant="40" id="l1D-Mn-pMU"/>
+                            <constraint firstItem="Xlv-vD-4vx" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="lnQ-Qz-7If"/>
+                            <constraint firstItem="Xlv-vD-4vx" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="pSv-gw-dQ1"/>
+                            <constraint firstItem="BVs-wO-BsY" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="sPK-we-vkd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumTitle" destination="sjU-2E-Kik" id="kSH-W0-h5Q"/>
+                        <outlet property="artistName" destination="Xlv-vD-4vx" id="ngA-fd-OUb"/>
                         <outlet property="trackImageView" destination="EP7-34-AO8" id="6T8-lU-pl4"/>
+                        <outlet property="trackTitle" destination="BVs-wO-BsY" id="XyD-YW-9y6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
