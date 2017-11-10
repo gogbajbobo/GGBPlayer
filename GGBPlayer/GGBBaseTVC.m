@@ -62,36 +62,16 @@
     CGFloat defaultFontSize = titleButton.titleLabel.font.pointSize;
     CGFloat fontSize = defaultFontSize - 2;
     
-    NSMutableString *albumArtist = nowPlayingItem.albumArtist.mutableCopy;
-    
     UIFont *font = [UIFont boldSystemFontOfSize:fontSize];
 
-    NSDictionary *attributes = @{NSFontAttributeName: font};
-
-    NSRange range = {albumArtist.length-1, 1};
-
-    while ([albumArtist boundingRectWithSize:CGSizeMake(FLT_MAX, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil].size.width > availableWidth) {
-
-        [albumArtist deleteCharactersInRange:range];
-        range.location--;
-        [albumArtist replaceCharactersInRange:range withString:@"…"];
-
-    }
-
-    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:[albumArtist stringByAppendingString:@"\n"]
-                                                                       attributes:attributes];
+    NSAttributedString *artistString = [self artistAttributedStringFromItem:nowPlayingItem
+                                                                       font:font
+                                                             availableWidth:availableWidth];
     
     font = [UIFont systemFontOfSize:fontSize];
 
-    NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
-    paragrahStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragrahStyle.alignment = NSTextAlignmentCenter;
-
-    attributes = @{NSFontAttributeName           : font,
-                   NSParagraphStyleAttributeName : paragrahStyle};
-    
-    NSAttributedString *itemTitleString = [[NSAttributedString alloc] initWithString:nowPlayingItem.title
-                                                                          attributes:attributes];
+    NSAttributedString *itemTitleString = [self itemTitleAttributedStringFromItem:nowPlayingItem
+                                                                             font:font];
     
     NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:@""];
     [titleText appendAttributedString:artistString];
@@ -115,6 +95,48 @@
     
     return titleBtn;
     
+}
+
+- (NSAttributedString *)artistAttributedStringFromItem:(MPMediaItem *)nowPlayingItem font:(UIFont *)font availableWidth:(CGFloat)availableWidth{
+    
+    NSMutableString *albumArtist = nowPlayingItem.albumArtist.mutableCopy;
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+
+    NSRange range = {albumArtist.length-1, 1};
+    
+    while ([albumArtist boundingRectWithSize:CGSizeMake(FLT_MAX, FLT_MAX)
+                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:attributes
+                                     context:nil].size.width > availableWidth) {
+        
+        [albumArtist deleteCharactersInRange:range];
+        range.location--;
+        [albumArtist replaceCharactersInRange:range withString:@"…"];
+        
+    }
+    
+    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:[albumArtist stringByAppendingString:@"\n"]
+                                                                       attributes:attributes];
+
+    return artistString;
+    
+}
+
+- (NSAttributedString *)itemTitleAttributedStringFromItem:(MPMediaItem *)nowPlayingItem font:(UIFont *)font {
+    
+    NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
+    paragrahStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    paragrahStyle.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName           : font,
+                                 NSParagraphStyleAttributeName : paragrahStyle};
+    
+    NSString *itemTitle = nowPlayingItem.title;
+    NSAttributedString *itemTitleString = [[NSAttributedString alloc] initWithString:itemTitle
+                                                                          attributes:attributes];
+    
+    return itemTitleString;
+
 }
 
 - (void)playNowPlayingItem {
