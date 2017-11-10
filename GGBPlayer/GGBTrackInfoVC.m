@@ -17,6 +17,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitle;
 @property (weak, nonatomic) IBOutlet UILabel *trackTitle;
 
+@property (weak, nonatomic) IBOutlet UISlider *currentPositionSlider;
+@property (weak, nonatomic) IBOutlet UILabel *currentPositionTime;
+@property (weak, nonatomic) IBOutlet UILabel *totalTrackTime;
+
+@property (weak, nonatomic) IBOutlet UIButton *rewindButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *fastForwardButton;
+
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+
+@property (weak, nonatomic) IBOutlet UIImageView *likeImageView;
+
 
 @end
 
@@ -41,22 +53,73 @@
 
 }
 
+- (void)addDoubleTapGesture {
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(likeToCurrentItem)];
+    doubleTap.numberOfTapsRequired = 2;
+    
+    [self.trackImageView addGestureRecognizer:doubleTap];
+
+}
+
 - (void)fillTrackInfo {
     
     MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+
+    [self fillArtworkForItem:currentItem];
+    [self fillTitlesForItem:currentItem];
+    [self fillDurationForItem:currentItem];
+    [self fillRatingForItem:currentItem];
     
-    UIImage *trackImage = [currentItem.artwork imageWithSize:self.trackImageView.frame.size];
+}
+
+- (void)fillArtworkForItem:(MPMediaItem *)item {
+    
+    UIImage *trackImage = [item.artwork imageWithSize:self.trackImageView.frame.size];
     
     if (!trackImage) {
         trackImage = [UIImage imageNamed:@"cd.png"];
     }
-
-    self.trackImageView.image = trackImage;
     
-    self.artistName.text = currentItem.artist;
-    self.albumTitle.text = [NSString stringWithFormat:@"(%@) %@", [currentItem valueForProperty:@"year"], currentItem.albumTitle];
-    self.trackTitle.text = currentItem.title;
-        
+    self.trackImageView.image = trackImage;
+
+}
+
+- (void)likeToCurrentItem {
+    
+    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+
+    NSUInteger newRating = (currentItem.rating == 5) ? 0 : 5;
+    
+    [currentItem setValue:@(newRating)
+                   forKey:MPMediaItemPropertyRating];
+    
+    [self fillRatingForItem:currentItem];
+    
+}
+
+- (void)fillTitlesForItem:(MPMediaItem *)item {
+    
+    self.artistName.text = item.artist;
+    self.albumTitle.text = [NSString stringWithFormat:@"(%@) %@", [item valueForProperty:@"year"], item.albumTitle];
+    self.trackTitle.text = item.title;
+
+}
+
+- (void)fillDurationForItem:(MPMediaItem *)item {
+
+    NSNumber *duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+
+    NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
+    NSString *durationString = [dateComponentsFormatter stringFromTimeInterval:duration.doubleValue];
+    
+    self.totalTrackTime.text = durationString;
+    
+}
+
+- (void)fillRatingForItem:(MPMediaItem *)item {
+    [self.likeImageView setHighlighted:(item.rating == 5)];
 }
 
 
@@ -65,6 +128,7 @@
 - (void)customInit {
 
     [self addSwipeGesture];
+    [self addDoubleTapGesture];
     [self fillTrackInfo];
     
 }

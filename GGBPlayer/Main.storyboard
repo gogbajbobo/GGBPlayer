@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-34-AO8">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-34-AO8">
                                 <rect key="frame" x="40" y="37" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EP7-34-AO8" secondAttribute="height" multiplier="1:1" id="cxV-KX-Q8C"/>
@@ -106,6 +106,13 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="icons8-mute.png" maximumValueImage="icons8-volume_up.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2D-bw-ew1">
                                 <rect key="frame" x="14" y="497" width="292" height="31"/>
                             </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-like.png" highlightedImage="icons8-like_filled.png" translatesAutoresizingMaskIntoConstraints="NO" id="ux7-SU-8rS">
+                                <rect key="frame" x="218" y="215" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="dA0-f2-o8i"/>
+                                    <constraint firstAttribute="height" constant="50" id="z2h-qg-Bhw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -125,6 +132,7 @@
                             <constraint firstItem="D9E-SU-dpm" firstAttribute="top" secondItem="Jnd-Nr-50V" secondAttribute="bottom" constant="8" id="Ogc-X8-Cm0"/>
                             <constraint firstItem="J2D-bw-ew1" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="16" id="PBP-i0-Nwm"/>
                             <constraint firstItem="EP7-34-AO8" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="40" id="Q4j-vh-OF2"/>
+                            <constraint firstItem="ux7-SU-8rS" firstAttribute="bottom" secondItem="EP7-34-AO8" secondAttribute="bottom" constant="-12" id="QkB-AO-owj"/>
                             <constraint firstItem="J2D-bw-ew1" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="Scm-12-T1g"/>
                             <constraint firstAttribute="trailing" secondItem="BVs-wO-BsY" secondAttribute="trailing" constant="40" id="SyW-sZ-0TF"/>
                             <constraint firstItem="sjU-2E-Kik" firstAttribute="top" secondItem="Xlv-vD-4vx" secondAttribute="bottom" constant="8" id="Uih-uT-RJz"/>
@@ -136,6 +144,7 @@
                             <constraint firstItem="Xlv-vD-4vx" firstAttribute="top" secondItem="EP7-34-AO8" secondAttribute="bottom" constant="8" id="chZ-rZ-dxR"/>
                             <constraint firstItem="cR1-LH-I2C" firstAttribute="top" secondItem="BVs-wO-BsY" secondAttribute="bottom" constant="8" id="ecc-Zn-bOu"/>
                             <constraint firstAttribute="trailing" secondItem="Xlv-vD-4vx" secondAttribute="trailing" constant="40" id="l1D-Mn-pMU"/>
+                            <constraint firstItem="ux7-SU-8rS" firstAttribute="trailing" secondItem="EP7-34-AO8" secondAttribute="trailing" constant="-12" id="l3l-bh-NPe"/>
                             <constraint firstItem="Xlv-vD-4vx" firstAttribute="centerX" secondItem="22A-gj-J1t" secondAttribute="centerX" id="lnQ-Qz-7If"/>
                             <constraint firstItem="bNE-Xj-mRJ" firstAttribute="leading" secondItem="22A-gj-J1t" secondAttribute="leading" constant="16" id="mV6-A9-HoG"/>
                             <constraint firstAttribute="trailing" secondItem="cR1-LH-I2C" secondAttribute="trailing" constant="40" id="p9N-BG-CkD"/>
@@ -150,8 +159,16 @@
                     <connections>
                         <outlet property="albumTitle" destination="sjU-2E-Kik" id="kSH-W0-h5Q"/>
                         <outlet property="artistName" destination="Xlv-vD-4vx" id="ngA-fd-OUb"/>
+                        <outlet property="currentPositionSlider" destination="cR1-LH-I2C" id="Tv0-TZ-OVi"/>
+                        <outlet property="currentPositionTime" destination="Jnd-Nr-50V" id="XOo-sQ-PIh"/>
+                        <outlet property="fastForwardButton" destination="B4I-AD-NPT" id="MOX-SH-Ziz"/>
+                        <outlet property="likeImageView" destination="ux7-SU-8rS" id="LKq-an-c9s"/>
+                        <outlet property="playButton" destination="D9E-SU-dpm" id="0nJ-H2-cWS"/>
+                        <outlet property="rewindButton" destination="1lS-e8-czX" id="o4l-ol-Ran"/>
+                        <outlet property="totalTrackTime" destination="gXr-nb-kZ1" id="wmG-vt-ECW"/>
                         <outlet property="trackImageView" destination="EP7-34-AO8" id="6T8-lU-pl4"/>
                         <outlet property="trackTitle" destination="BVs-wO-BsY" id="XyD-YW-9y6"/>
+                        <outlet property="volumeSlider" destination="J2D-bw-ew1" id="c7L-nc-vCv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,6 +388,8 @@
     </scenes>
     <resources>
         <image name="icons8-fast_forward.png" width="50" height="50"/>
+        <image name="icons8-like.png" width="50" height="50"/>
+        <image name="icons8-like_filled.png" width="50" height="50"/>
         <image name="icons8-mute.png" width="25" height="25"/>
         <image name="icons8-play.png" width="50" height="50"/>
         <image name="icons8-rewind.png" width="50" height="50"/>
