@@ -11,7 +11,6 @@
 		2C0B8AFE1FB06025004BD742 /* GGBBaseTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B8AFD1FB06025004BD742 /* GGBBaseTracksTVC.m */; };
 		2C0B8B011FB33781004BD742 /* GGBTrackInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B8B001FB33781004BD742 /* GGBTrackInfoVC.m */; };
 		2C0B8B031FB42A60004BD742 /* cd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B8B021FB42A60004BD742 /* cd.png */; };
-		2C0B8B061FB42BE6004BD742 /* GGBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B8B051FB42BE6004BD742 /* GGBAutoScrollLabel.m */; };
 		2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */; };
 		2C7956CB1F9DE5A900EB3072 /* GGBPlayerNC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */; };
 		2C8C0E431F94D1900007403C /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E421F94D1900007403C /* GGBAppDelegate.m */; };
@@ -53,8 +52,6 @@
 		2C0B8AFF1FB33781004BD742 /* GGBTrackInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBTrackInfoVC.h; sourceTree = "<group>"; };
 		2C0B8B001FB33781004BD742 /* GGBTrackInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBTrackInfoVC.m; sourceTree = "<group>"; };
 		2C0B8B021FB42A60004BD742 /* cd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cd.png; sourceTree = "<group>"; };
-		2C0B8B041FB42BE6004BD742 /* GGBAutoScrollLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAutoScrollLabel.h; sourceTree = "<group>"; };
-		2C0B8B051FB42BE6004BD742 /* GGBAutoScrollLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAutoScrollLabel.m; sourceTree = "<group>"; };
 		2C7956C51F9A2E3B00EB3072 /* GGBAllTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBAllTracksTVC.h; sourceTree = "<group>"; };
 		2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBAllTracksTVC.m; sourceTree = "<group>"; };
 		2C7956C81F9DE44B00EB3072 /* GGBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBConstants.h; sourceTree = "<group>"; };
@@ -163,8 +160,6 @@
 				2C7956C61F9A2E3B00EB3072 /* GGBAllTracksTVC.m */,
 				2C0B8AFF1FB33781004BD742 /* GGBTrackInfoVC.h */,
 				2C0B8B001FB33781004BD742 /* GGBTrackInfoVC.m */,
-				2C0B8B041FB42BE6004BD742 /* GGBAutoScrollLabel.h */,
-				2C0B8B051FB42BE6004BD742 /* GGBAutoScrollLabel.m */,
 			);
 			path = GGBPlayer;
 			sourceTree = "<group>";
@@ -341,7 +336,6 @@
 				2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */,
 				2C0B8AFE1FB06025004BD742 /* GGBBaseTracksTVC.m in Sources */,
 				2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */,
-				2C0B8B061FB42BE6004BD742 /* GGBAutoScrollLabel.m in Sources */,
 				2C0B8AF81FAEE443004BD742 /* GGBBaseTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
