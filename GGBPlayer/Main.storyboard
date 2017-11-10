@@ -86,6 +86,9 @@
                                     <constraint firstAttribute="height" constant="50" id="Zaa-tm-ieN"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-play.png"/>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="omm-l3-Fuw" eventType="touchUpInside" id="AFn-uP-rvl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lS-e8-czX" userLabel="Rewind Button">
                                 <rect key="frame" x="40" y="439" width="50" height="50"/>
@@ -94,6 +97,9 @@
                                     <constraint firstAttribute="width" constant="50" id="Ejl-Y2-Sfw"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-rewind.png"/>
+                                <connections>
+                                    <action selector="rewindButtonPressed:" destination="omm-l3-Fuw" eventType="touchUpInside" id="SMh-o3-BdW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4I-AD-NPT" userLabel="Fast Forward Button">
                                 <rect key="frame" x="230" y="439" width="50" height="50"/>
@@ -102,6 +108,9 @@
                                     <constraint firstAttribute="width" constant="50" id="2ua-tQ-aoE"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-fast_forward.png"/>
+                                <connections>
+                                    <action selector="fastForwardButtonPressed:" destination="omm-l3-Fuw" eventType="touchUpInside" id="nIf-kr-hbH"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="icons8-mute.png" maximumValueImage="icons8-volume_up.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2D-bw-ew1">
                                 <rect key="frame" x="14" y="497" width="292" height="31"/>

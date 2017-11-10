@@ -35,13 +35,8 @@
 
 @implementation GGBTrackInfoVC
 
-- (void)dismissSelf {
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    
-}
+
+#pragma mark - gestures
 
 - (void)addSwipeGesture {
     
@@ -63,6 +58,22 @@
 
 }
 
+
+#pragma mark - buttons
+
+- (IBAction)rewindButtonPressed:(id)sender {
+}
+
+- (IBAction)playButtonPressed:(id)sender {
+    ([GGBLibraryController playbackState] == MPMusicPlaybackStatePlaying) ? [GGBLibraryController pause] : [GGBLibraryController play];
+}
+
+- (IBAction)fastForwardButtonPressed:(id)sender {
+}
+
+
+#pragma mark - fill info
+
 - (void)fillTrackInfo {
     
     MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
@@ -71,6 +82,7 @@
     [self fillTitlesForItem:currentItem];
     [self fillDurationForItem:currentItem];
     [self fillRatingForItem:currentItem];
+    [self fillPlayPauseButton];
     
 }
 
@@ -122,11 +134,62 @@
     [self.likeImageView setHighlighted:(item.rating == 5)];
 }
 
+- (void)fillPlayPauseButton {
+    
+    MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
+
+    NSString *imageName = (playbackState == MPMusicPlaybackStatePlaying) ? @"icons8-pause" : @"icons8-play";
+    self.playButton.imageView.image = [UIImage imageNamed:imageName];
+    
+}
+
+
+#pragma mark - notifications
+
+- (void)subscribeToPlayerNotifications {
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(playbackStateDidChange)
+               name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
+             object:nil];
+    
+    [nc addObserver:self
+           selector:@selector(nowPlayingItemDidChange)
+               name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+             object:nil];
+    
+}
+
+- (void)unsubscribeFromPlayerNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)playbackStateDidChange {
+    [self fillPlayPauseButton];
+}
+
+- (void)nowPlayingItemDidChange {
+    [self fillTrackInfo];
+}
+
 
 #pragma mark - view lifecycle
 
+- (void)dismissSelf {
+    
+    [self unsubscribeFromPlayerNotifications];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+}
+
 - (void)customInit {
 
+    [self subscribeToPlayerNotifications];
     [self addSwipeGesture];
     [self addDoubleTapGesture];
     [self fillTrackInfo];
