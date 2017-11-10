@@ -85,6 +85,7 @@
 
     NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
     paragrahStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    paragrahStyle.alignment = NSTextAlignmentCenter;
 
     attributes = @{NSFontAttributeName           : font,
                    NSParagraphStyleAttributeName : paragrahStyle};
