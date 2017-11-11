@@ -62,6 +62,7 @@
 #pragma mark - buttons
 
 - (IBAction)rewindButtonPressed:(id)sender {
+    ([GGBLibraryController currentPosition] < 1) ? [GGBLibraryController previous] : [GGBLibraryController beginning];
 }
 
 - (IBAction)playButtonPressed:(id)sender {
