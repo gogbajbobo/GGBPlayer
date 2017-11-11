@@ -75,6 +75,20 @@
     [GGBLibraryController next];
 }
 
+- (IBAction)currentPositionChanged:(id)sender {
+    
+    if (![sender isEqual:self.currentPositionSlider]) return;
+    
+    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+    NSNumber *duration = [currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
+    
+    NSTimeInterval newPosition = self.currentPositionSlider.value * duration.doubleValue;
+    
+    [GGBLibraryController setCurrentPosition:newPosition];
+    [self fillCurrentPosition];
+    
+}
+
 
 #pragma mark - fill info
 

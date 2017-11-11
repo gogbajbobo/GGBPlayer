@@ -183,5 +183,9 @@
     return [self sharedLibraryController].playerController.currentPlaybackTime;
 }
 
++ (void)setCurrentPosition:(NSTimeInterval)newPosition {
+    [self sharedLibraryController].playerController.currentPlaybackTime = newPosition;
+}
+
 
 @end

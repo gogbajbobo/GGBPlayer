@@ -48,6 +48,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cR1-LH-I2C">
                                 <rect key="frame" x="38" y="372" width="244" height="31"/>
+                                <connections>
+                                    <action selector="currentPositionChanged:" destination="omm-l3-Fuw" eventType="valueChanged" id="R3o-d2-SDM"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNE-Xj-mRJ">
                                 <rect key="frame" x="16" y="410" width="42" height="21"/>
