@@ -34,6 +34,7 @@
 
 + (MPMediaItem *)nowPlayingItem;
 + (MPMusicPlaybackState)playbackState;
++ (NSTimeInterval)currentPosition;
 
 
 @end

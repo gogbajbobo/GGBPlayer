@@ -179,5 +179,9 @@
     return [self sharedLibraryController].playerController.playbackState;
 }
 
++ (NSTimeInterval)currentPosition {
+    return [self sharedLibraryController].playerController.currentPlaybackTime;
+}
+
 
 @end
