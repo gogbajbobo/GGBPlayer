@@ -78,6 +78,13 @@
 
 #pragma mark - fill info
 
+- (void)customizeSlider {
+    
+    [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"icons8-musical"]
+                                     forState:UIControlStateNormal];
+    
+}
+
 - (void)fillTrackInfo {
     
     MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
@@ -263,6 +270,7 @@
     [self subscribeToPlayerNotifications];
     [self addSwipeGesture];
     [self addDoubleTapGesture];
+    [self customizeSlider];
     [self fillTrackInfo];
     
 }
