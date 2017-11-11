@@ -69,6 +69,7 @@
 }
 
 - (IBAction)fastForwardButtonPressed:(id)sender {
+    [GGBLibraryController next];
 }
 
 
