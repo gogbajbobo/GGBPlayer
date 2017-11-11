@@ -94,10 +94,19 @@
 }
 
 + (void)pause {
+    [[self sharedLibraryController].playerController pause];
+}
 
-    MPMusicPlayerController *pc = [self sharedLibraryController].playerController;
-    [pc pause];
++ (void)next {
+    [[self sharedLibraryController].playerController skipToNextItem];
+}
 
++ (void)beginning {
+    [[self sharedLibraryController].playerController skipToBeginning];
+}
+
++ (void)previous {
+    [[self sharedLibraryController].playerController skipToPreviousItem];
 }
 
 + (NSArray *)albumArtists {
