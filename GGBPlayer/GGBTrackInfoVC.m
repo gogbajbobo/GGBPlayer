@@ -29,6 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *likeImageView;
 
+@property (nonatomic, strong) NSTimer *playingTimer;
+
 
 @end
 
@@ -85,6 +87,7 @@
     [self fillDurationForItem:currentItem];
     [self fillRatingForItem:currentItem];
     [self fillPlayPauseButton];
+    [self fillCurrentPosition];
     
 }
 
@@ -126,6 +129,8 @@
     NSNumber *duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
 
     NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
+    dateComponentsFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
+    dateComponentsFormatter.allowedUnits = (NSCalendarUnitMinute | NSCalendarUnitSecond);
     NSString *durationString = [dateComponentsFormatter stringFromTimeInterval:duration.doubleValue];
     
     self.totalTrackTime.text = durationString;
@@ -142,6 +147,64 @@
 
     NSString *imageName = (playbackState == MPMusicPlaybackStatePlaying) ? @"icons8-pause" : @"icons8-play";
     self.playButton.imageView.image = [UIImage imageNamed:imageName];
+    
+}
+
+- (void)checkTimerForCurrentPosition {
+    
+    MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
+
+    if (playbackState == MPMusicPlaybackStatePlaying) {
+        
+        [self initPlayingTimer];
+        
+    } else {
+        
+        [self invalidatePlayingTimer];
+        [self fillCurrentPosition];
+        
+    }
+
+}
+
+- (void)initPlayingTimer {
+    
+    [self invalidatePlayingTimer];
+    
+    self.playingTimer = [NSTimer timerWithTimeInterval:1
+                                                target:self
+                                              selector:@selector(fillCurrentPosition)
+                                              userInfo:nil
+                                               repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.playingTimer
+                                 forMode:NSDefaultRunLoopMode];
+    
+}
+
+- (void)invalidatePlayingTimer {
+    
+    [self.playingTimer invalidate];
+    self.playingTimer = nil;
+    
+}
+
+- (void)fillCurrentPosition {
+    
+    NSTimeInterval currentPosition = [GGBLibraryController currentPosition];
+    
+    NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
+    dateComponentsFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
+    dateComponentsFormatter.allowedUnits = (NSCalendarUnitMinute | NSCalendarUnitSecond);
+    NSString *currentPositionString = [dateComponentsFormatter stringFromTimeInterval:currentPosition];
+
+    self.currentPositionTime.text = currentPositionString;
+    
+    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+    NSNumber *duration = [currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
+
+    float sliderValue = currentPosition / duration.doubleValue;
+    self.currentPositionSlider.value = sliderValue;
     
 }
 
@@ -169,11 +232,17 @@
 }
 
 - (void)playbackStateDidChange {
+    
     [self fillPlayPauseButton];
+    [self checkTimerForCurrentPosition];
+    
 }
 
 - (void)nowPlayingItemDidChange {
+    
     [self fillTrackInfo];
+    [self fillCurrentPosition];
+    
 }
 
 
