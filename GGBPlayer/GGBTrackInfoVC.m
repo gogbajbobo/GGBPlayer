@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *fastForwardButton;
 
-@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (weak, nonatomic) IBOutlet UIView *volumeSliderView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *likeImageView;
 
@@ -92,13 +92,33 @@
 
 #pragma mark - fill info
 
-- (void)customizeSlider {
+- (void)setupSliders {
+
+    [self setupPositionSlider];
+    [self setupVolumeSlider];
+
+}
+
+- (void)setupPositionSlider {
     
     [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"transparent"]
                                      forState:UIControlStateNormal];
-
+    
     self.currentPositionSlider.continuous = NO;
 
+}
+
+- (void)setupVolumeSlider {
+
+    [self.volumeSliderView setNeedsLayout];
+    [self.volumeSliderView layoutIfNeeded];
+    
+    self.volumeSliderView.backgroundColor = [UIColor clearColor];
+    
+    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:self.volumeSliderView.bounds];
+    
+    [self.volumeSliderView addSubview:volumeView];
+    
 }
 
 - (void)fillTrackInfo {
@@ -286,7 +306,7 @@
     [self subscribeToPlayerNotifications];
     [self addSwipeGesture];
     [self addDoubleTapGesture];
-    [self customizeSlider];
+    [self setupSliders];
     [self fillTrackInfo];
     
 }
