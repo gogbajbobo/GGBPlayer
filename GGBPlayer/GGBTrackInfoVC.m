@@ -94,12 +94,9 @@
 
 - (void)customizeSlider {
     
-//    [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"icons8-musical"]
-//                                     forState:UIControlStateNormal];
-
-    [self.currentPositionSlider setThumbImage:[[UIImage alloc] init]
+    [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"transparent"]
                                      forState:UIControlStateNormal];
-    
+
     self.currentPositionSlider.continuous = NO;
 
 }
