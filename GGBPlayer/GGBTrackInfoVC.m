@@ -94,9 +94,12 @@
 
 - (void)customizeSlider {
     
-    [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"icons8-musical"]
+//    [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"icons8-musical"]
+//                                     forState:UIControlStateNormal];
+
+    [self.currentPositionSlider setThumbImage:[[UIImage alloc] init]
                                      forState:UIControlStateNormal];
-    
+
 }
 
 - (void)fillTrackInfo {
