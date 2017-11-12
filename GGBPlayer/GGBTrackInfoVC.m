@@ -99,6 +99,8 @@
 
     [self.currentPositionSlider setThumbImage:[[UIImage alloc] init]
                                      forState:UIControlStateNormal];
+    
+    self.currentPositionSlider.continuous = NO;
 
 }
 
