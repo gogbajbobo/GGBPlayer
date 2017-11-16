@@ -29,8 +29,10 @@
 + (NSArray *)collectionsFilteredByAlbumArtist:(NSString *)albumArtist;
 + (NSArray *)albumsInfoForAlbumArtist:(NSString *)albumArtist;
 
-+ (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
-+ (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist;
++ (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle
+                           andAlbumArtist:(NSString *)albumArtist;
++ (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle
+                                    andAlbumArtist:(NSString *)albumArtist;
 
 + (MPMediaItem *)nowPlayingItem;
 + (MPMusicPlaybackState)playbackState;
