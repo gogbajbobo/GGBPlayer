@@ -34,6 +34,7 @@
 		2C8C0E821F95DF570007403C /* GGBAlbumsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E811F95DF570007403C /* GGBAlbumsTVC.m */; };
 		2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */; };
 		2C8C0E871F95EA1C0007403C /* GGBTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */; };
+		2CE856781FBDD2BC001EEAEA /* icons8-sad_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		2C8C0E851F95EA1C0007403C /* GGBTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBTracksTVC.h; sourceTree = "<group>"; };
 		2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBTracksTVC.m; sourceTree = "<group>"; };
 		2CE856761FBDC7DE001EEAEA /* GGBPrivateConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBPrivateConstants.h; sourceTree = "<group>"; };
+		2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-sad_male.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		2C8C0E881F96574F0007403C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */,
 				2C0B8B371FB83BB7004BD742 /* transparent.png */,
 				2C0B8B2D1FB5ACE1004BD742 /* icons8-like.png */,
 				2C0B8B2B1FB5ACD4004BD742 /* icons8-like_filled.png */,
@@ -329,6 +332,7 @@
 				2C0B8B281FB58B94004BD742 /* icons8-rewind.png in Resources */,
 				2C0B8B031FB42A60004BD742 /* cd.png in Resources */,
 				2C0B8B381FB83BB8004BD742 /* transparent.png in Resources */,
+				2CE856781FBDD2BC001EEAEA /* icons8-sad_male.png in Resources */,
 				2C0B8B2A1FB58B9C004BD742 /* icons8-pause.png in Resources */,
 				2C0B8B1C1FB58B1D004BD742 /* icons8-volume_up.png in Resources */,
 				2C0B8B2E1FB5ACE1004BD742 /* icons8-like.png in Resources */,
