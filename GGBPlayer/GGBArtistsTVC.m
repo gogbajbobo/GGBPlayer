@@ -12,6 +12,9 @@
 
 @interface GGBArtistsTVC ()
 
+@property (nonatomic, strong) NSMutableArray *requestedArtistPictures;
+
+
 @end
 
 
@@ -67,6 +70,18 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
+    NSString *imagePath = [self dataPathForArtistName:albumArtist];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+        [self setImage:image
+               forCell:cell];
+        
+    } else {
+        [self getArtistPictureForIndexPath:indexPath];
+    }
+    
     return cell;
     
 }
@@ -80,6 +95,60 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath {
     NSLog(@"indexPath %@", indexPath);
+}
+
+- (void)getArtistPictureForIndexPath:(NSIndexPath *)indexPath {
+    
+    if (!self.requestedArtistPictures) {
+        self.requestedArtistPictures = @[].mutableCopy;
+    }
+    
+    if ([self.requestedArtistPictures containsObject:indexPath]) return;
+    
+    [self.requestedArtistPictures addObject:indexPath];
+
+    NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
+
+    [GGBLibraryController getArtistPicture:albumArtist completionHandler:^(BOOL success, NSData *imageData) {
+        
+        if (!success) {
+            
+            [self.requestedArtistPictures removeObject:indexPath];
+            return;
+            
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+            NSString *dataPath = [self dataPathForArtistName:albumArtist];
+            
+            [imageData writeToFile:dataPath
+                        atomically:YES];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.requestedArtistPictures removeObject:indexPath];
+                
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                                      withRowAnimation:UITableViewRowAnimationNone];
+                
+            });
+            
+        });
+
+    }];
+    
+}
+
+- (NSString *)dataPathForArtistName:(NSString *)artistName {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [artistName stringByAppendingString:@".dat"];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+
+    return dataPath;
+    
 }
 
 
