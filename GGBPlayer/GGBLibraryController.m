@@ -197,6 +197,8 @@
     urlString = [urlString stringByAppendingString:@"&type=artist&token="];
     urlString = [urlString stringByAppendingString:DISCOGS_TOKEN];
     
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
     NSURL *url = [NSURL URLWithString:urlString];
     
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -227,6 +229,8 @@
             return;
 
         }
+        
+        thumbUrlString = [thumbUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         
         NSURL *thumbUrl = [NSURL URLWithString:thumbUrlString];
         
