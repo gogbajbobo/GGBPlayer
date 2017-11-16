@@ -8,6 +8,9 @@
 
 #import "GGBLibraryController.h"
 
+#import "GGBPrivateConstants.h"
+
+
 @interface GGBLibraryController()
 
 @property (nonatomic, strong) MPMusicPlayerController *playerController;
@@ -188,6 +191,59 @@
 }
 
 + (void)getArtistPicture:(NSString *)artistName completionHandler:(void (^)(BOOL success, NSData *imageData))completionHandler {
+    
+    NSString *urlString = @"https://api.discogs.com/database/search?q=";
+    urlString = [urlString stringByAppendingString:artistName];
+    urlString = [urlString stringByAppendingString:@"&type=artist&token="];
+    urlString = [urlString stringByAppendingString:DISCOGS_TOKEN];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+        id dataObject = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:nil];
+        
+        if (!dataObject || ![dataObject isKindOfClass:[NSDictionary class]]) {
+            
+            completionHandler(NO, nil);
+            return;
+            
+        }
+        
+        NSDictionary *jsonObject = (NSDictionary *)dataObject;
+        NSArray *results = jsonObject[@"results"];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title like[cd] %@", artistName];
+        results = [results filteredArrayUsingPredicate:predicate];
+        
+        NSDictionary *result = results.firstObject;
+        NSString *thumbUrlString = result[@"thumb"];
+        
+        if (!thumbUrlString) {
+
+            completionHandler(NO, nil);
+            return;
+
+        }
+        
+        NSURL *thumbUrl = [NSURL URLWithString:thumbUrlString];
+        
+        [[[NSURLSession sharedSession] dataTaskWithURL:thumbUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (!data) {
+                
+                completionHandler(NO, nil);
+                return;
+
+            }
+            
+            completionHandler(YES, data);
+            
+        }] resume];
+        
+    }] resume];
     
 }
 
