@@ -39,5 +39,8 @@
 + (NSTimeInterval)currentPosition;
 + (void)setCurrentPosition:(NSTimeInterval)newPosition;
 
++ (void)getArtistPicture:(NSString *)artistName
+       completionHandler:(void (^)(BOOL success, NSData *imageData))completionHandler;
+
 
 @end
