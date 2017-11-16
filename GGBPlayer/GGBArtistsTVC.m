@@ -72,16 +72,22 @@
     
     NSString *imagePath = [self dataPathForArtistName:albumArtist];
     
+    UIImage *image;
+    
     if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
         
-        UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-        [self setImage:image
-               forCell:cell];
+        image = [UIImage imageWithContentsOfFile:imagePath];
         
     } else {
+        
+        image = [UIImage imageNamed:@"icons8-sad_male"];
         [self getArtistPictureForIndexPath:indexPath];
+        
     }
-    
+
+    [self setImage:image
+           forCell:cell];
+
     return cell;
     
 }
