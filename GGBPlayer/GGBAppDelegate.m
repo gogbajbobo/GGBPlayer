@@ -8,6 +8,9 @@
 
 #import "GGBAppDelegate.h"
 
+#import "GGBLibraryController.h"
+
+
 @interface GGBAppDelegate ()
 
 @end
@@ -16,8 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [GGBLibraryController start];
+
     return YES;
+    
 }
 
 

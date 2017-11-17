@@ -7,7 +7,6 @@
 //
 
 #import "GGBPlayerNC.h"
-#import "GGBLibraryController.h"
 
 
 @interface GGBPlayerNC ()
@@ -18,7 +17,7 @@
 @implementation GGBPlayerNC
 
 - (void)customInit {
-    [GGBLibraryController start];
+
 }
 
 - (void)viewDidLoad {
