@@ -251,5 +251,9 @@
     
 }
 
++ (void)checkArtistPictures {
+    
+}
+
 
 @end

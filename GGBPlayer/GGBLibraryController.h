@@ -42,5 +42,7 @@
 + (void)getArtistPicture:(NSString *)artistName
        completionHandler:(void (^)(BOOL success, NSData *imageData))completionHandler;
 
++ (void)checkArtistPictures;
+
 
 @end
