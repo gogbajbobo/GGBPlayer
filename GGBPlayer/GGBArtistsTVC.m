@@ -21,6 +21,26 @@
 
 @implementation GGBArtistsTVC
 
+#pragma mark - variables setters and getters
+
+- (NSMutableArray *)requestedArtistPictures {
+    
+    if (!_requestedArtistPictures) {
+        _requestedArtistPictures = @[].mutableCopy;
+    }
+    return _requestedArtistPictures;
+    
+}
+
+- (NSMutableArray *)noPictureArtist {
+    
+    if (!_noPictureArtist) {
+        _noPictureArtist = @[].mutableCopy;
+    }
+    return _noPictureArtist;
+    
+}
+
 - (void)customInit {
     [super customInit];
 }
@@ -105,11 +125,7 @@
 }
 
 - (void)getArtistPictureForIndexPath:(NSIndexPath *)indexPath {
-    
-    if (!self.requestedArtistPictures) {
-        self.requestedArtistPictures = @[].mutableCopy;
-    }
-    
+        
     if ([self.requestedArtistPictures containsObject:indexPath]) return;
     
     [self.requestedArtistPictures addObject:indexPath];
