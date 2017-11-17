@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) MPMusicPlayerController *playerController;
 @property (nonatomic, strong) NSArray *collections;
-@property (nonatomic, strong) NSArray *albumArtists;
+@property (nonatomic, strong) NSArray <NSString *> *albumArtists;
 
 
 @end
@@ -114,7 +114,7 @@
     [[self sharedLibraryController].playerController skipToPreviousItem];
 }
 
-+ (NSArray *)albumArtists {
++ (NSArray <NSString *> *)albumArtists {
     
     NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"self"
                                                                  ascending:YES

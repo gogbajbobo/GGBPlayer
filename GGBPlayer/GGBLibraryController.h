@@ -22,7 +22,7 @@
 + (void)beginning;
 + (void)previous;
 
-+ (NSArray *)albumArtists;
++ (NSArray <NSString *> *)albumArtists;
 + (NSNumber *)numberOfAlbumsForAlbumArtist:(NSString *)albumArtist;
 + (NSNumber *)numberOfTracksForAlbumArtist:(NSString *)albumArtist;
 
