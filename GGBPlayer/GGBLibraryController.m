@@ -8,7 +8,7 @@
 
 #import "GGBLibraryController.h"
 
-#import "GGBPrivateConstants.h"
+#import "GGBHelper.h"
 
 
 @interface GGBLibraryController()
@@ -74,6 +74,8 @@
     lc.collections = filteredCollections;
     lc.albumArtists = albumArtists;
 
+    [GGBHelper checkArtistPictures];
+    
 }
 
 + (void)playCollection:(MPMediaItemCollection *)collection {
