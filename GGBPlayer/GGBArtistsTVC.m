@@ -200,4 +200,13 @@
 }
 
 
+#pragma mark - buttons
+
+- (IBAction)refreshButtonPressed:(id)sender {
+    
+    [GGBLibraryController refreshCollections];
+    [self.tableView reloadData];
+    
+}
+
 @end

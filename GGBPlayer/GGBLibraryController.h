@@ -15,6 +15,8 @@
 + (void)start;
 + (void)stop;
 
++ (void)refreshCollections;
+
 + (void)playCollection:(MPMediaItemCollection *)collection;
 + (void)play;
 + (void)pause;
