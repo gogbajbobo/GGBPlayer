@@ -13,6 +13,7 @@
 @interface GGBArtistsTVC ()
 
 @property (nonatomic, strong) NSMutableArray *requestedArtistPictures;
+@property (nonatomic, strong) NSMutableArray *noPictureArtist;
 
 
 @end
