@@ -8,6 +8,7 @@
 
 #import "GGBArtistsTVC.h"
 #import "GGBAlbumsTVC.h"
+#import "GGBHelper.h"
 
 
 @interface GGBArtistsTVC ()
@@ -94,7 +95,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    NSString *imagePath = [self dataPathForArtistName:albumArtist];
+    NSString *imagePath = [GGBHelper thumbPicturePathForArtistName:albumArtist];
     
     UIImage *image;
     
@@ -137,7 +138,7 @@
     
     if ([self.noPictureArtist containsObject:albumArtist]) return;
 
-    [GGBLibraryController getArtistPicture:albumArtist completionHandler:^(BOOL success, NSData *imageData) {
+    [GGBHelper getArtistPicture:albumArtist completionHandler:^(BOOL success, NSData *imageData) {
         
         if (!success) {
             
@@ -149,7 +150,7 @@
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            NSString *dataPath = [self dataPathForArtistName:albumArtist];
+            NSString *dataPath = [GGBHelper thumbPicturePathForArtistName:albumArtist];
             
             [imageData writeToFile:dataPath
                         atomically:YES];
@@ -166,17 +167,6 @@
         });
 
     }];
-    
-}
-
-- (NSString *)dataPathForArtistName:(NSString *)artistName {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [artistName stringByAppendingString:@".dat"];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
-
-    return dataPath;
     
 }
 
