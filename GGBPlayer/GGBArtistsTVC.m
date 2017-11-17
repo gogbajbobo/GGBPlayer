@@ -41,6 +41,9 @@
     
 }
 
+
+#pragma mark - view lifecycle
+
 - (void)customInit {
     [super customInit];
 }
