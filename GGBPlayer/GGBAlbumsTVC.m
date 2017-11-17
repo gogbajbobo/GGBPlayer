@@ -92,6 +92,10 @@
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
+    if (albumTrackCount.integerValue) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+
     UIImage *cellImage = [mediaItem.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)];
     [super setImage:cellImage
             forCell:cell];
