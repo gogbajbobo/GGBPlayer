@@ -82,26 +82,18 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray <NSString *> *albumArtists = [GGBLibraryController albumArtists];
     
-    NSLog(@"albumArtists %@", albumArtists);
-    
     NSArray <NSString *> *cachesContent = [fileManager contentsOfDirectoryAtPath:[self cachesDirectory]
                                                                            error:nil];
-    
-    NSLog(@"cachesContent1 %@", cachesContent);
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self endswith %@", PIC_FILE_EXTENTION];
     
     cachesContent = [cachesContent filteredArrayUsingPredicate:predicate];
-
-    NSLog(@"cachesContent2 %@", cachesContent);
 
     [cachesContent enumerateObjectsUsingBlock:^(NSString * _Nonnull objPath, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSString *fileName = objPath.lastPathComponent.stringByDeletingPathExtension;
         
         if (![albumArtists containsObject:fileName]) {
-            
-            NSLog(@"remove %@", objPath);
             
             [fileManager removeItemAtPath:objPath
                                     error:nil];
