@@ -131,7 +131,8 @@
     [self fillRatingForItem:currentItem];
     [self fillPlayPauseButton];
     [self fillCurrentPosition];
-    
+    [self checkTimerForCurrentPosition];
+
 }
 
 - (void)fillArtworkForItem:(MPMediaItem *)item {
@@ -294,6 +295,7 @@
 - (void)dismissSelf {
     
     [self unsubscribeFromPlayerNotifications];
+    [self invalidatePlayingTimer];
     
     [self dismissViewControllerAnimated:YES completion:^{
         
