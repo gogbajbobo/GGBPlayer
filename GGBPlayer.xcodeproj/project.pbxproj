@@ -34,6 +34,7 @@
 		2C8C0E841F95E00A0007403C /* GGBArtistsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E831F95E00A0007403C /* GGBArtistsTVC.m */; };
 		2C8C0E871F95EA1C0007403C /* GGBTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */; };
 		2CE856781FBDD2BC001EEAEA /* icons8-sad_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */; };
+		2CE8567B1FBEDE48001EEAEA /* GGBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8567A1FBEDE48001EEAEA /* GGBHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBTracksTVC.m; sourceTree = "<group>"; };
 		2CE856761FBDC7DE001EEAEA /* GGBPrivateConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBPrivateConstants.h; sourceTree = "<group>"; };
 		2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-sad_male.png"; sourceTree = "<group>"; };
+		2CE856791FBEDE48001EEAEA /* GGBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBHelper.h; sourceTree = "<group>"; };
+		2CE8567A1FBEDE48001EEAEA /* GGBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 				2CE856761FBDC7DE001EEAEA /* GGBPrivateConstants.h */,
 				2C8C0E731F94D2790007403C /* GGBLibraryController.h */,
 				2C8C0E741F94D2790007403C /* GGBLibraryController.m */,
+				2CE856791FBEDE48001EEAEA /* GGBHelper.h */,
+				2CE8567A1FBEDE48001EEAEA /* GGBHelper.m */,
 				2C7956C91F9DE5A900EB3072 /* GGBPlayerNC.h */,
 				2C7956CA1F9DE5A900EB3072 /* GGBPlayerNC.m */,
 				2C0B8AF61FAEE443004BD742 /* GGBBaseTVC.h */,
@@ -362,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE8567B1FBEDE48001EEAEA /* GGBHelper.m in Sources */,
 				2C7956CB1F9DE5A900EB3072 /* GGBPlayerNC.m in Sources */,
 				2C8C0E511F94D1900007403C /* main.m in Sources */,
 				2C7956C71F9A2E3B00EB3072 /* GGBAllTracksTVC.m in Sources */,
