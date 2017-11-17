@@ -125,18 +125,21 @@
 }
 
 - (void)getArtistPictureForIndexPath:(NSIndexPath *)indexPath {
-        
+    
     if ([self.requestedArtistPictures containsObject:indexPath]) return;
     
     [self.requestedArtistPictures addObject:indexPath];
 
     NSString *albumArtist = [GGBLibraryController albumArtists][indexPath.row];
+    
+    if ([self.noPictureArtist containsObject:albumArtist]) return;
 
     [GGBLibraryController getArtistPicture:albumArtist completionHandler:^(BOOL success, NSData *imageData) {
         
         if (!success) {
             
             [self.requestedArtistPictures removeObject:indexPath];
+            [self.noPictureArtist addObject:albumArtist];
             return;
             
         }
