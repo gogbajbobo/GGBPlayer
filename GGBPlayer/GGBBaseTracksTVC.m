@@ -35,6 +35,18 @@
                                                             forIndexPath:indexPath];
     
     NSString *trackTitle = item.title;
+    cell.textLabel.text = trackTitle;
+    
+    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
+    
+    if ([nowPlayingItem.albumArtist isEqualToString:item.albumArtist] &&
+        [nowPlayingItem.albumTitle isEqualToString:item.albumTitle] &&
+        [nowPlayingItem.title isEqualToString:item.title]) {
+        [super selectCell:cell];
+    } else {
+        [super unselectCell:cell];
+    }
+    
     NSUInteger rating = item.rating;
     NSString *ratingString = @"";
     
@@ -48,19 +60,14 @@
         
     }
     
-    cell.textLabel.text = trackTitle;
+    NSString *detailText = ratingString;
     
-    MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
-    
-    if ([nowPlayingItem.albumArtist isEqualToString:item.albumArtist] &&
-        [nowPlayingItem.albumTitle isEqualToString:item.albumTitle] &&
-        [nowPlayingItem.title isEqualToString:item.title]) {
-        [super selectCell:cell];
-    } else {
-        [super unselectCell:cell];
+    if (![item.albumArtist isEqualToString:item.artist]) {
+        detailText = [[detailText stringByAppendingString:@" "] stringByAppendingString:item.artist];
     }
-    
-    cell.detailTextLabel.text = ratingString;
+
+    cell.detailTextLabel.text = detailText;
+
     cell.tag = item.albumTrackNumber;
     
     [super setImage:[item.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)]
