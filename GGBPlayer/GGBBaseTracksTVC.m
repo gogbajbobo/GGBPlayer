@@ -29,7 +29,9 @@
     return CELL_HEIGHT;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath withMediaItem:(MPMediaItem *)item {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MPMediaItem *item = [self mediaItemForIndexPath:indexPath];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"trackCell"
                                                             forIndexPath:indexPath];
@@ -75,6 +77,10 @@
     
     return cell;
     
+}
+
+- (MPMediaItem *)mediaItemForIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 

@@ -64,10 +64,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    MPMediaItem *item = self.collections[indexPath.section].items[indexPath.row];
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath withMediaItem:item];
-    
+    return [super tableView:tableView cellAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,6 +80,10 @@
     
     [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:items]];
     
+}
+
+- (MPMediaItem *)mediaItemForIndexPath:(NSIndexPath *)indexPath {
+    return self.collections[indexPath.section].items[indexPath.row];
 }
 
 

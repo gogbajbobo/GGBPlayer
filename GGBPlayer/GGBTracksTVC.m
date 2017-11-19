@@ -47,10 +47,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MPMediaItem *item = self.collection.items[indexPath.row];
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath withMediaItem:item];
-    
+    return [super tableView:tableView cellAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,6 +56,10 @@
     NSArray *items = [self.collection.items subarrayWithRange:subarrayRange];
     [GGBLibraryController playCollection:[MPMediaItemCollection collectionWithItems:items]];
     
+}
+
+- (MPMediaItem *)mediaItemForIndexPath:(NSIndexPath *)indexPath {
+    return self.collection.items[indexPath.row];
 }
 
 

@@ -11,8 +11,7 @@
 @interface GGBBaseTracksTVC : GGBBaseTVC
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                 withMediaItem:(MPMediaItem *)item;
+               cellAtIndexPath:(NSIndexPath *)indexPath;
 
 
 @end
