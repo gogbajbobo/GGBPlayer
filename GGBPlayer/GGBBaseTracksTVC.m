@@ -111,7 +111,7 @@
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(handleLongPress:)];
-    longPress.minimumPressDuration = 2.0; //seconds
+    longPress.minimumPressDuration = 1.0; //seconds
     longPress.delegate = self;
     [self.tableView addGestureRecognizer:longPress];
 
