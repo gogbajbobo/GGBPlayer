@@ -8,14 +8,22 @@
 
 #import "GGBBaseTracksTVC.h"
 
-@interface GGBBaseTracksTVC ()
+@interface GGBBaseTracksTVC () <UIGestureRecognizerDelegate>
+
 
 @end
 
+
 @implementation GGBBaseTracksTVC
 
+
+#pragma mark - view lifecycle
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    [self addLongPress];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +101,35 @@
     NSPredicate *nowPlayingPredicate = [NSPredicate predicateWithFormat:@"textLabel.text == %@ && tag == %@", nowPlayingItem.title, @(nowPlayingItem.albumTrackNumber)];
     
     return nowPlayingPredicate;
+    
+}
+
+
+#pragma mark - gestures
+
+- (void)addLongPress {
+
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 2.0; //seconds
+    longPress.delegate = self;
+    [self.tableView addGestureRecognizer:longPress];
+
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+    
+        CGPoint point = [gestureRecognizer locationInView:self.tableView];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+        
+        if (!indexPath) return;
+
+        MPMediaItem *item = [self mediaItemForIndexPath:indexPath];
+
+    }
     
 }
 
