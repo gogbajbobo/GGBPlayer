@@ -30,11 +30,25 @@
 
 @property (nonatomic, strong) NSTimer *playingTimer;
 
+@property (nonatomic, strong) MPMediaItem *currentItem;
+
 
 @end
 
 
 @implementation GGBTrackInfoVC
+
+
+#pragma mark - variables setters and getters
+
+- (MPMediaItem *)currentItem {
+
+    if (!_currentItem) {
+        _currentItem = self.mediaItem ? self.mediaItem : [GGBLibraryController nowPlayingItem];
+    }
+    return _currentItem;
+    
+}
 
 
 #pragma mark - gestures
@@ -78,8 +92,7 @@
     
     if (![sender isEqual:self.currentPositionSlider]) return;
     
-    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
-    NSNumber *duration = [currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
+    NSNumber *duration = [self.currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
     
     NSTimeInterval newPosition = self.currentPositionSlider.value * duration.doubleValue;
     
@@ -136,12 +149,10 @@
 
 - (void)fillTrackInfo {
     
-    MPMediaItem *currentItem = self.mediaItem ? self.mediaItem : [GGBLibraryController nowPlayingItem];
-
-    [self fillArtworkForItem:currentItem];
-    [self fillTitlesForItem:currentItem];
-    [self fillDurationForItem:currentItem];
-    [self fillRatingForItem:currentItem];
+    [self fillArtworkForItem:self.currentItem];
+    [self fillTitlesForItem:self.currentItem];
+    [self fillDurationForItem:self.currentItem];
+    [self fillRatingForItem:self.currentItem];
     [self fillPlayPauseButton];
     [self fillCurrentPosition];
     [self checkTimerForCurrentPosition];
@@ -162,14 +173,12 @@
 
 - (void)likeToCurrentItem {
     
-    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
-
-    NSUInteger newRating = (currentItem.rating == 5) ? 0 : 5;
+    NSUInteger newRating = (self.currentItem.rating == 5) ? 0 : 5;
     
-    [currentItem setValue:@(newRating)
+    [self.currentItem setValue:@(newRating)
                    forKey:MPMediaItemPropertyRating];
     
-    [self fillRatingForItem:currentItem];
+    [self fillRatingForItem:self.currentItem];
     
 }
 
@@ -210,6 +219,8 @@
     if (self.mediaItem) {
         
         self.playButton.hidden = YES;
+        self.rewindButton.hidden = YES;
+        self.fastForwardButton.hidden = YES;
         return;
         
     }
@@ -281,8 +292,7 @@
 
     self.currentPositionTime.text = currentPositionString;
     
-    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
-    NSNumber *duration = [currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
+    NSNumber *duration = [self.currentItem valueForProperty:MPMediaItemPropertyPlaybackDuration];
 
     float sliderValue = currentPosition / duration.doubleValue;
     self.currentPositionSlider.value = sliderValue;
