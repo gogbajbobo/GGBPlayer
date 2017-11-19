@@ -7,7 +7,6 @@
 //
 
 #import "GGBTrackInfoVC.h"
-#import "GGBLibraryController.h"
 
 
 @interface GGBTrackInfoVC ()
@@ -101,6 +100,13 @@
 
 - (void)setupPositionSlider {
     
+    if (self.mediaItem) {
+        
+        self.currentPositionSlider.hidden = YES;
+        return;
+        
+    }
+    
     [self.currentPositionSlider setThumbImage:[UIImage imageNamed:@"transparent"]
                                      forState:UIControlStateNormal];
     
@@ -109,6 +115,13 @@
 }
 
 - (void)setupVolumeSlider {
+
+    if (self.mediaItem) {
+        
+        self.volumeSliderView.hidden = YES;
+        return;
+        
+    }
 
     [self.volumeSliderView setNeedsLayout];
     [self.volumeSliderView layoutIfNeeded];
@@ -123,7 +136,7 @@
 
 - (void)fillTrackInfo {
     
-    MPMediaItem *currentItem = [GGBLibraryController nowPlayingItem];
+    MPMediaItem *currentItem = self.mediaItem ? self.mediaItem : [GGBLibraryController nowPlayingItem];
 
     [self fillArtworkForItem:currentItem];
     [self fillTitlesForItem:currentItem];
@@ -170,6 +183,13 @@
 
 - (void)fillDurationForItem:(MPMediaItem *)item {
 
+    if (self.mediaItem) {
+        
+        self.totalTrackTime.hidden = YES;
+        return;
+        
+    }
+    
     NSNumber *duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
 
     NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
@@ -187,6 +207,13 @@
 
 - (void)fillPlayPauseButton {
     
+    if (self.mediaItem) {
+        
+        self.playButton.hidden = YES;
+        return;
+        
+    }
+
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
 
     NSString *imageName = (playbackState == MPMusicPlaybackStatePlaying) ? @"icons8-pause" : @"icons8-play";
@@ -195,6 +222,8 @@
 }
 
 - (void)checkTimerForCurrentPosition {
+    
+    if (self.mediaItem) return;
     
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
 
@@ -235,6 +264,14 @@
 
 - (void)fillCurrentPosition {
     
+    if (self.mediaItem) {
+        
+        self.currentPositionTime.hidden = YES;
+        self.currentPositionSlider.hidden = YES;
+        return;
+        
+    }
+    
     NSTimeInterval currentPosition = [GGBLibraryController currentPosition];
     
     NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
@@ -256,6 +293,8 @@
 #pragma mark - notifications
 
 - (void)subscribeToPlayerNotifications {
+    
+    if (self.mediaItem) return;
     
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     

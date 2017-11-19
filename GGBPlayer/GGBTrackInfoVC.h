@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GGBLibraryController.h"
+
+
 @interface GGBTrackInfoVC : UIViewController
+
+@property (nonatomic, strong) MPMediaItem *mediaItem;
+
 
 @end
