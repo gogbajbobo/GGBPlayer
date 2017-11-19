@@ -8,6 +8,9 @@
 
 #import "GGBBaseTracksTVC.h"
 
+#import "GGBTrackInfoVC.h"
+
+
 @interface GGBBaseTracksTVC () <UIGestureRecognizerDelegate>
 
 
@@ -128,10 +131,30 @@
         if (!indexPath) return;
 
         MPMediaItem *item = [self mediaItemForIndexPath:indexPath];
+        
+        [self performSegueWithIdentifier:@"showTrackInfo"
+                                  sender:item];
 
     }
     
 }
+
+
+#pragma mark - segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if (![segue.identifier isEqualToString:@"showTrackInfo"]) return;
+    if (![segue.destinationViewController isKindOfClass:[GGBTrackInfoVC class]]) return;
+    if (![sender isKindOfClass:[MPMediaItem class]]) return;
+    
+    GGBTrackInfoVC *trackInfoVC = (GGBTrackInfoVC *)segue.destinationViewController;
+    MPMediaItem *item = (MPMediaItem *)sender;
+    
+    trackInfoVC.mediaItem = item;
+    
+}
+
 
 
 @end
