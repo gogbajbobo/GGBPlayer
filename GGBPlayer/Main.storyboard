@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-696.12676056338034"/>
+            <point key="canvasLocation" x="2801" y="821"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kJP-Bf-PWA">
@@ -353,6 +353,9 @@
                             <outlet property="delegate" destination="tuO-1Q-O1u" id="777-WC-ajn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="omm-l3-Fuw" kind="presentation" identifier="showTrackInfo" modalTransitionStyle="coverVertical" id="ybt-CD-2s5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIv-6I-a9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -397,6 +400,9 @@
                             <outlet property="delegate" destination="jME-QT-mGt" id="l4T-sB-1Qq"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="omm-l3-Fuw" kind="presentation" identifier="showTrackInfo" modalTransitionStyle="coverVertical" id="s9Z-ss-t1b"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnC-63-Ry7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -435,4 +441,7 @@
         <image name="icons8-rewind.png" width="50" height="50"/>
         <image name="icons8-volume_up.png" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ybt-CD-2s5"/>
+    </inferredMetricsTieBreakers>
 </document>
