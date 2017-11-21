@@ -88,7 +88,9 @@
     }
 
     NSNumber *albumTrackCount = [GGBLibraryController numberOfTracksForAlbumTitle:mediaItem.albumTitle
-                                                                   andAlbumArtist:self.albumArtist];
+                                                                      albumArtist:self.albumArtist
+                                                                             year:[mediaItem valueForProperty:@"year"]
+                                                                       discNumber:mediaItem.discNumber];
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"tracks: %@", albumTrackCount];
     
@@ -157,7 +159,9 @@
     
     tracksTVC.albumInfo = mediaItem;
     tracksTVC.collection = [GGBLibraryController collectionForAlbumTitle:albumTitle
-                                                          andAlbumArtist:albumArtist];
+                                                             albumArtist:albumArtist
+                                                                    year:[mediaItem valueForProperty:@"year"]
+                                                              discNumber:mediaItem.discNumber];
 
 }
 

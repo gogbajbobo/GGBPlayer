@@ -154,22 +154,30 @@
     
 }
 
-+ (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist {
++ (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle albumArtist:(NSString *)albumArtist year:(NSNumber *)year discNumber:(NSUInteger)discNumber {
     
     MPMediaItemCollection *collection = [self collectionForAlbumTitle:albumTitle
-                                                       andAlbumArtist:albumArtist];
+                                                       albumArtist:albumArtist
+                                                                 year:year
+                                                           discNumber:discNumber];
     
     return @(collection.count);
     
 }
 
-+ (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle andAlbumArtist:(NSString *)albumArtist {
++ (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle albumArtist:(NSString *)albumArtist year:(NSNumber *)year discNumber:(NSUInteger)discNumber {
 
     NSArray *filteredCollections = [self collectionsFilteredByAlbumArtist:albumArtist];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"representativeItem.albumTitle == %@", albumTitle];
     filteredCollections = [filteredCollections filteredArrayUsingPredicate:predicate];
-    
+
+    predicate = [NSPredicate predicateWithFormat:@"representativeItem.year == %@", year];
+    filteredCollections = [filteredCollections filteredArrayUsingPredicate:predicate];
+
+    predicate = [NSPredicate predicateWithFormat:@"representativeItem.discNumber == %@", @(discNumber)];
+    filteredCollections = [filteredCollections filteredArrayUsingPredicate:predicate];
+
     MPMediaItemCollection *collection = filteredCollections.firstObject;
 
     return collection;

@@ -42,7 +42,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [GGBLibraryController numberOfTracksForAlbumTitle:self.albumInfo.albumTitle
-                                              andAlbumArtist:self.albumInfo.albumArtist].integerValue;
+                                                 albumArtist:self.albumInfo.albumArtist
+                                                        year:[self.albumInfo valueForProperty:@"year"]
+                                                  discNumber:self.albumInfo.discNumber].integerValue;
     
 }
 

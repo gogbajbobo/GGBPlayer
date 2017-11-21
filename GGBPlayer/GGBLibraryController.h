@@ -32,9 +32,14 @@
 + (NSArray *)albumsInfoForAlbumArtist:(NSString *)albumArtist;
 
 + (NSNumber *)numberOfTracksForAlbumTitle:(NSString *)albumTitle
-                           andAlbumArtist:(NSString *)albumArtist;
+                              albumArtist:(NSString *)albumArtist
+                                     year:(NSNumber *)year
+                               discNumber:(NSUInteger)discNumber;
+
 + (MPMediaItemCollection *)collectionForAlbumTitle:(NSString *)albumTitle
-                                    andAlbumArtist:(NSString *)albumArtist;
+                                       albumArtist:(NSString *)albumArtist
+                                              year:(NSNumber *)year
+                                        discNumber:(NSUInteger)discNumber;
 
 + (MPMediaItem *)nowPlayingItem;
 + (MPMusicPlaybackState)playbackState;
