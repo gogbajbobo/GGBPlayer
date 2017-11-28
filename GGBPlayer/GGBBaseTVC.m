@@ -197,6 +197,11 @@
            selector:@selector(nowPlayingItemDidChange)
                name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
              object:nil];
+    
+    [nc addObserver:self
+           selector:@selector(nowPlayingItemDidChange)
+               name:UIApplicationDidBecomeActiveNotification
+             object:nil];
 
 }
 
