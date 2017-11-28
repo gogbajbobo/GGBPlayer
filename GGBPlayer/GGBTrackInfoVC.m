@@ -302,7 +302,7 @@
 
 #pragma mark - notifications
 
-- (void)subscribeToPlayerNotifications {
+- (void)subscribeToNotifications {
     
     if (self.mediaItem) return;
     
@@ -320,7 +320,7 @@
     
 }
 
-- (void)unsubscribeFromPlayerNotifications {
+- (void)unsubscribeFromNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -343,7 +343,7 @@
 
 - (void)dismissSelf {
     
-    [self unsubscribeFromPlayerNotifications];
+    [self unsubscribeFromNotifications];
     [self invalidatePlayingTimer];
     
     [self dismissViewControllerAnimated:YES completion:^{
@@ -354,7 +354,7 @@
 
 - (void)customInit {
 
-    [self subscribeToPlayerNotifications];
+    [self subscribeToNotifications];
     [self addSwipeGesture];
     [self addDoubleTapGesture];
     [self setupSliders];

@@ -184,7 +184,7 @@
     return nil;
 }
 
-- (void)subscribeToPlayerNotifications {
+- (void)subscribeToNotifications {
     
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
@@ -200,7 +200,7 @@
 
 }
 
-- (void)unsubscribeFromPlayerNotifications {
+- (void)unsubscribeFromNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -230,7 +230,7 @@
 - (void)customInit {
     
     [self refreshNowPlayingItem];
-    [self subscribeToPlayerNotifications];
+    [self subscribeToNotifications];
     [self scrollToSelectedCell];
     
 }
