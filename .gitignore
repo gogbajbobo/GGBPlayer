@@ -2,3 +2,8 @@
 *.xcbkptlist
 
 GGBPrivateConstants.h
+
+Podfile.lock
+
+Pods/
+fabric.sh
