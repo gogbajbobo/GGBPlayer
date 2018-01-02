@@ -35,6 +35,7 @@
 		2C8C0E871F95EA1C0007403C /* GGBTracksTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C0E861F95EA1C0007403C /* GGBTracksTVC.m */; };
 		2CE856781FBDD2BC001EEAEA /* icons8-sad_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */; };
 		2CE8567B1FBEDE48001EEAEA /* GGBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8567A1FBEDE48001EEAEA /* GGBHelper.m */; };
+		5E74DF1A7B5304622B051E07 /* Pods_GGBPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5BA13C1A752953CA71E418 /* Pods_GGBPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23F2A447E6965BA503700E9A /* Pods-GGBPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGBPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GGBPlayer/Pods-GGBPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		2C0B8AF61FAEE443004BD742 /* GGBBaseTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBBaseTVC.h; sourceTree = "<group>"; };
 		2C0B8AF71FAEE443004BD742 /* GGBBaseTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBBaseTVC.m; sourceTree = "<group>"; };
 		2C0B8AFC1FB06025004BD742 /* GGBBaseTracksTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBBaseTracksTVC.h; sourceTree = "<group>"; };
@@ -102,6 +104,8 @@
 		2CE856771FBDD2BC001EEAEA /* icons8-sad_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-sad_male.png"; sourceTree = "<group>"; };
 		2CE856791FBEDE48001EEAEA /* GGBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGBHelper.h; sourceTree = "<group>"; };
 		2CE8567A1FBEDE48001EEAEA /* GGBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBHelper.m; sourceTree = "<group>"; };
+		827ED01C1DDE8E5ABD0E018D /* Pods-GGBPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGBPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-GGBPlayer/Pods-GGBPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		BE5BA13C1A752953CA71E418 /* Pods_GGBPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGBPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E74DF1A7B5304622B051E07 /* Pods_GGBPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +141,8 @@
 				2C8C0E591F94D1900007403C /* GGBPlayerTests */,
 				2C8C0E641F94D1900007403C /* GGBPlayerUITests */,
 				2C8C0E3F1F94D1900007403C /* Products */,
+				9078AAD3AD4E478ACFE1EABC /* Pods */,
+				7CD983752B9DDFE779C33F0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +229,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7CD983752B9DDFE779C33F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE5BA13C1A752953CA71E418 /* Pods_GGBPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9078AAD3AD4E478ACFE1EABC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23F2A447E6965BA503700E9A /* Pods-GGBPlayer.debug.xcconfig */,
+				827ED01C1DDE8E5ABD0E018D /* Pods-GGBPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,9 +253,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C8C0E6A1F94D1900007403C /* Build configuration list for PBXNativeTarget "GGBPlayer" */;
 			buildPhases = (
+				BB45D7A8238E346AB2E0FF72 /* [CP] Check Pods Manifest.lock */,
 				2C8C0E3A1F94D1900007403C /* Sources */,
 				2C8C0E3B1F94D1900007403C /* Frameworks */,
 				2C8C0E3C1F94D1900007403C /* Resources */,
+				53CE169889B54A3D6E693FCA /* [CP] Embed Pods Frameworks */,
+				3EDF950428DCDA762C403B01 /* [CP] Copy Pods Resources */,
+				2CCA25041FFB887200D5E387 /* Fabric Run Script */,
 			);
 			buildRules = (
 			);
@@ -361,6 +389,71 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CCA25041FFB887200D5E387 /* Fabric Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ./fabric.sh";
+		};
+		3EDF950428DCDA762C403B01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GGBPlayer/Pods-GGBPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53CE169889B54A3D6E693FCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GGBPlayer/Pods-GGBPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB45D7A8238E346AB2E0FF72 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GGBPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C8C0E3A1F94D1900007403C /* Sources */ = {
@@ -531,6 +624,7 @@
 		};
 		2C8C0E6B1F94D1900007403C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23F2A447E6965BA503700E9A /* Pods-GGBPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +640,7 @@
 		};
 		2C8C0E6C1F94D1900007403C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 827ED01C1DDE8E5ABD0E018D /* Pods-GGBPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

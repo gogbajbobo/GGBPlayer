@@ -9,7 +9,8 @@
 #import "GGBAppDelegate.h"
 
 #import "GGBLibraryController.h"
-
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface GGBAppDelegate ()
 
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [Fabric with:@[[Crashlytics class]]];
     [GGBLibraryController start];
 
     return YES;
