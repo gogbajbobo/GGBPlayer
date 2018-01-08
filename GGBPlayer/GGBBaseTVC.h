@@ -25,5 +25,7 @@
 - (void)selectCell:(UITableViewCell *)cell;
 - (void)unselectCell:(UITableViewCell *)cell;
 
+- (void)subscribeToNotifications;
+
 
 @end

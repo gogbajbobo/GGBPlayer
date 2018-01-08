@@ -97,6 +97,12 @@
 
 #pragma mark - Notifications
 
+- (void)subscribeToNotifications {
+    
+    [super subscribeToNotifications];
+    
+}
+
 - (NSPredicate *)nowPlayingPredicate {
     
     MPMediaItem *nowPlayingItem = [GGBLibraryController nowPlayingItem];
