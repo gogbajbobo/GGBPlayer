@@ -64,5 +64,9 @@
     return self.collection.items[indexPath.row];
 }
 
+- (NSIndexPath *)indexPathForMediaItem:(MPMediaItem *)item {
+    return [NSIndexPath indexPathForRow:[self.collection.items indexOfObject:item] inSection:0];
+}
+
 
 @end

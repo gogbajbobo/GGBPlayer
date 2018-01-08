@@ -86,5 +86,26 @@
     return self.collections[indexPath.section].items[indexPath.row];
 }
 
+- (NSIndexPath *)indexPathForMediaItem:(MPMediaItem *)item {
+    
+    __block NSIndexPath *indexPath = nil;
+    
+    [self.collections enumerateObjectsUsingBlock:^(MPMediaItemCollection * _Nonnull collection, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSUInteger index = [collection.items indexOfObject:item];
+        
+        if (index != NSNotFound) {
+            
+            indexPath = [NSIndexPath indexPathForRow:index inSection:idx];
+            *stop = YES;
+            
+        }
+
+    }];
+    
+    return indexPath;
+    
+}
+
 
 @end

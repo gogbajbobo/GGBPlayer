@@ -94,6 +94,10 @@
     return nil;
 }
 
+- (NSIndexPath *)indexPathForMediaItem:(MPMediaItem *)item {
+    return nil;
+}
+
 
 #pragma mark - Notifications
 
