@@ -105,6 +105,13 @@
     
     [super subscribeToNotifications];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(mediaItemDidChange:)
+               name:GGBMediaItemDidChange
+             object:nil];
+    
 }
 
 - (NSPredicate *)nowPlayingPredicate {
@@ -114,6 +121,21 @@
     NSPredicate *nowPlayingPredicate = [NSPredicate predicateWithFormat:@"textLabel.text == %@ && tag == %@", nowPlayingItem.title, @(nowPlayingItem.albumTrackNumber)];
     
     return nowPlayingPredicate;
+    
+}
+
+- (void)mediaItemDidChange:(NSNotification *)notification {
+    
+    if (![notification.object isKindOfClass:[MPMediaItem class]]) return;
+    
+    MPMediaItem *item = (MPMediaItem *)notification.object;
+    NSIndexPath *indexPath = [self indexPathForMediaItem:item];
+    
+    if (!indexPath) return;
+    if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) return;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
     
 }
 
