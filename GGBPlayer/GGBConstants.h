@@ -15,5 +15,7 @@
 #define DISCOGS_ARTIST_DB @"discogs"
 #define LASTFM_ARTIST_DB @"lastfm"
 
+#define GGBMediaItemDidChange @"MediaItemDidChange"
+
 
 #endif /* GGBConstants_h */
