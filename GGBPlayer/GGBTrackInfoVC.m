@@ -173,11 +173,7 @@
 
 - (void)likeToCurrentItem {
     
-    NSUInteger newRating = (self.currentItem.rating == 5) ? 0 : 5;
-    
-    [self.currentItem setValue:@(newRating)
-                   forKey:MPMediaItemPropertyRating];
-    
+    [GGBLibraryController likeItem:self.currentItem];
     [self fillRatingForItem:self.currentItem];
     
 }

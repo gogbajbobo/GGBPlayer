@@ -9,6 +9,7 @@
 #import "GGBLibraryController.h"
 
 #import "GGBHelper.h"
+#import "GGBConstants.h"
 
 
 @interface GGBLibraryController()
@@ -198,6 +199,18 @@
 
 + (void)setCurrentPosition:(NSTimeInterval)newPosition {
     [self sharedLibraryController].playerController.currentPlaybackTime = newPosition;
+}
+
++ (void)likeItem:(MPMediaItem *)item {
+    
+    NSUInteger newRating = (item.rating == 5) ? 0 : 5;
+    
+    [item setValue:@(newRating)
+            forKey:MPMediaItemPropertyRating];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:GGBMediaItemDidChange
+                                                        object:item];
+    
 }
 
 
