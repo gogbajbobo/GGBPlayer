@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOQ-rH-yW4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOQ-rH-yW4">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -176,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-X9-Jkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799.375" y="820.77464788732391"/>
+            <point key="canvasLocation" x="3068" y="171"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kJP-Bf-PWA">
@@ -315,6 +316,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="omm-l3-Fuw" kind="presentation" identifier="popTrackInfo" modalTransitionStyle="coverVertical" id="zRF-kK-cxp">
+                                        <segue key="commit" inheritsFrom="parent" id="wVS-7u-Rvq"/>
+                                        <segue key="preview" inheritsFrom="commit" id="gd2-3r-VXS"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -362,6 +369,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="omm-l3-Fuw" kind="presentation" identifier="popTrackInfo" modalTransitionStyle="coverVertical" id="xL3-AF-PCB">
+                                        <segue key="commit" inheritsFrom="parent" id="ADh-Su-z7a"/>
+                                        <segue key="preview" inheritsFrom="commit" id="DFP-8H-YiL"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -409,6 +422,6 @@
         <image name="icons8-rewind.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ybt-CD-2s5"/>
+        <segue reference="xL3-AF-PCB"/>
     </inferredMetricsTieBreakers>
 </document>

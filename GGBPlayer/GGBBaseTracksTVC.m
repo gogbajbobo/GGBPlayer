@@ -176,12 +176,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if (![segue.identifier isEqualToString:@"showTrackInfo"]) return;
+    if (![@[@"popTrackInfo", @"showTrackInfo"] containsObject:segue.identifier]) return;
     if (![segue.destinationViewController isKindOfClass:[GGBTrackInfoVC class]]) return;
-    if (![sender isKindOfClass:[MPMediaItem class]]) return;
-    
+
     GGBTrackInfoVC *trackInfoVC = (GGBTrackInfoVC *)segue.destinationViewController;
-    MPMediaItem *item = (MPMediaItem *)sender;
+    MPMediaItem *item = nil;
+    
+    if ([sender isKindOfClass:[MPMediaItem class]]) {
+        item = (MPMediaItem *)sender;
+    } else if ([sender isKindOfClass:[UITableViewCell class]]) {
+        item = [self mediaItemForIndexPath:[self.tableView indexPathForCell:(UITableViewCell *)sender]];
+    }
     
     trackInfoVC.mediaItem = item;
     
