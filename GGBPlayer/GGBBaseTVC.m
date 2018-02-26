@@ -39,8 +39,8 @@
                                                                              action:selector];
     
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                          target:self
-                                                                          action:selector];
+                                                                          target:nil
+                                                                          action:nil];
     
     UIBarButtonItem *titleBtn = [self titleBtnForNowPlayingItem:nowPlayingItem];
     
