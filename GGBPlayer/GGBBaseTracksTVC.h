@@ -10,8 +10,5 @@
 
 @interface GGBBaseTracksTVC : GGBBaseTVC
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-               cellAtIndexPath:(NSIndexPath *)indexPath;
-
 
 @end

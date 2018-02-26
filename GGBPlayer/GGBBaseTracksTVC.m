@@ -42,7 +42,7 @@
     return CELL_HEIGHT;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MPMediaItem *item = [self mediaItemForIndexPath:indexPath];
     
@@ -80,16 +80,16 @@
     if (![item.albumArtist isEqualToString:item.artist]) {
         detailText = [[detailText stringByAppendingString:@" "] stringByAppendingString:item.artist];
     }
-
+    
     cell.detailTextLabel.text = detailText;
-
+    
     cell.tag = item.albumTrackNumber;
     
     [super setImage:[item.artwork imageWithSize:CGSizeMake(CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT)]
             forCell:cell];
     
     return cell;
-    
+
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
