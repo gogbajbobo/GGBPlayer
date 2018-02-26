@@ -81,10 +81,11 @@
                            forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor blackColor]
                       forState:UIControlStateNormal];
+    [titleButton sizeToFit];
+
     [titleButton addTarget:self
                     action:@selector(showTrackInfo)
           forControlEvents:UIControlEventTouchUpInside];
-    [titleButton sizeToFit];
 
     CGFloat titleButtonWidth = titleButton.frame.size.width;
 
