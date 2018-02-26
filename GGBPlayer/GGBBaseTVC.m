@@ -26,7 +26,13 @@
     [artworkButton setImage:buttonImage
                    forState:UIControlStateNormal];
     artworkButton.frame = CGRectMake(0, 0, CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT);
-    artworkButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    artworkButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+
+    if (@available(iOS 9, *)) {
+        [artworkButton.widthAnchor constraintEqualToConstant: CELL_IMAGE_HEIGHT].active = YES;
+        [artworkButton.heightAnchor constraintEqualToConstant: CELL_IMAGE_HEIGHT].active = YES;
+    }
+
     UIBarButtonItem *artworkItem = [[UIBarButtonItem alloc] initWithCustomView:artworkButton];
     
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
