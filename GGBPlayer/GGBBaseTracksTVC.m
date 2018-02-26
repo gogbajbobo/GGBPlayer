@@ -13,6 +13,8 @@
 
 @interface GGBBaseTracksTVC () <UIGestureRecognizerDelegate>
 
+@property (nonatomic) BOOL disablePeekAndPop;
+
 
 @end
 
@@ -87,6 +89,13 @@
             forCell:cell];
     
     return cell;
+    
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.disablePeekAndPop = YES;
+    return indexPath;
     
 }
 
@@ -173,6 +182,19 @@
 
 
 #pragma mark - segue
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+
+    if ([identifier isEqualToString:@"popTrackInfo"] && self.disablePeekAndPop) {
+        
+        self.disablePeekAndPop = NO;
+        return NO;
+        
+    }
+    
+    return YES;
+
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
