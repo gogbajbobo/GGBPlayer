@@ -26,6 +26,7 @@
     [artworkButton setImage:buttonImage
                    forState:UIControlStateNormal];
     artworkButton.frame = CGRectMake(0, 0, CELL_IMAGE_HEIGHT, CELL_IMAGE_HEIGHT);
+    artworkButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     UIBarButtonItem *artworkItem = [[UIBarButtonItem alloc] initWithCustomView:artworkButton];
     
     MPMusicPlaybackState playbackState = [GGBLibraryController playbackState];
@@ -44,7 +45,7 @@
     UIBarButtonItem *titleBtn = [self titleBtnForNowPlayingItem:nowPlayingItem];
     
     [self setToolbarItems:@[artworkItem, flex, titleBtn, flex, playBtn]];
-    
+
 }
 
 - (UIBarButtonItem *)titleBtnForNowPlayingItem:(MPMediaItem *)nowPlayingItem {
